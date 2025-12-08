@@ -1,0 +1,41 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // ========= GALLERY IMAGES =========
+    match /gallery/{imageId} {
+      // Public can read gallery images
+      allow read: if true;
+      
+      // Only admins can upload/delete gallery images
+      // Validate: only images, max 5MB
+      allow write: if isAdmin() &&
+                      request.resource.size < 5 * 1024 * 1024 &&
+                      request.resource.contentType.matches('image/.*');
+    }
+    
+    // ========= DOCUMENTS =========
+    match /documents/{docId} {
+      // Public can read documents
+      allow read: if true;
+      
+      // Only admins can upload/delete documents
+      // Validate: only PDFs, max 10MB
+      allow write: if isAdmin() &&
+                      request.resource.size < 10 * 1024 * 1024 &&
+                      request.resource.contentType == 'application/pdf';
+    }
+    
+    // ========= DEFAULT - DENY ALL =========
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+    
+    // ========= ADMIN CHECK FUNCTION =========
+    function isAdmin() {
+      return request.auth != null &&
+             request.auth.token.admin == true;
+    }
+  }
+}

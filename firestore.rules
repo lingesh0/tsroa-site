@@ -1,0 +1,55 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // PUBLIC READ COLLECTIONS
+    match /events/{docId} {
+      allow read: if true;          // homepage/events page can load
+      allow write: if isAdmin();
+    }
+
+    match /announcements/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /gallery/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /members/{docId} {
+      allow read: if true;          // about/contact page needs this
+      allow write: if isAdmin();
+    }
+
+    // MEMBERSHIP APPLICATIONS (AUTHENTICATED USERS CAN READ/UPDATE, PUBLIC CAN CREATE)
+    match /membershipApplications/{docId} {
+
+      // Anyone can submit a new application
+      allow create: if true;
+
+      // Any logged-in user can read and update
+      allow read, update: if isAuthenticated();
+
+      // Only admins can delete
+      allow delete: if isAdmin();
+    }
+
+    // USERS COLLECTION (ADMIN ONLY)
+    match /users/{uid} {
+      allow read, write: if isAdmin();
+    }
+
+    // CHECK IF USER IS AUTHENTICATED (logged in with email/password)
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // CHECK IF USER IS ADMIN (has admin custom claim)
+    function isAdmin() {
+      return request.auth != null &&
+             request.auth.token.admin == true;
+    }
+  }
+}
