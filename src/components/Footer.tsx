@@ -90,7 +90,7 @@ const Footer = () => {
             © {new Date().getFullYear()} தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம், நாமக்கல் மாவட்டம். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.
           </p>
           <p className="mt-2">
-            Developed by <span className="text-primary font-semibold">Xeve Tech</span>
+            Developed by <a href="https://xevetech.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">Xeve Tech Solutions</a>
           </p>
         </div>
       </div>
