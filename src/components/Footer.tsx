@@ -16,7 +16,7 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold">தமிழ் மாநில வருவாய்த் துறை</h3>
+                <h3 className="text-xl font-bold">தமிழ் மாநில வருவாய்த்துறை</h3>
                 <p className="text-sm text-gray-400">அலுவலர் சங்கம் - நாமக்கல்</p>
               </div>
             </div>

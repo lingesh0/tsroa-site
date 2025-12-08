@@ -29,7 +29,7 @@ const Navbar = () => {
             />
             <div className="hidden md:block">
               <h1 className="text-lg font-bold text-primary leading-tight">
-                தமிழ் மாநில வருவாய்த் துறை
+                தமிழ் மாநில வருவாய்த்துறை
               </h1>
               <p className="text-sm text-gray-600">அலுவலர் சங்கம் - நாமக்கல்</p>
             </div>
