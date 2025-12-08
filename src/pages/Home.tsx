@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Home = () => {
   const containerVariants = {
@@ -23,6 +24,12 @@ const Home = () => {
 
   return (
     <div>
+      <SEO 
+        title="முகப்பு"
+        description="தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம் (TSROA) நாமக்கல் - அலுவலர்களின் சங்கம், சேவைகள், நிகழ்வுகள் மற்றும் உறுப்பினர் விண்ணப்பம்"
+        keywords="TSROA, நாமக்கல், வருவாய்த் துறை, அலுவலர் சங்கம், தமிழ் நாடு, அரசு"
+        url="https://tsroa-namakkal.vercel.app/"
+      />
       {/* Hero Section with Background Image */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image - Full Visibility */}

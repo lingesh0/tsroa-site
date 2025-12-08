@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
+# Google Crawlers
+User-agent: Googlebot
+Allow: /
+
+# Bing Crawlers
+User-agent: Bingbot
+Allow: /
+
+# Set crawl delay (in seconds)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://tsroa-namakkal.vercel.app/sitemap.xml
