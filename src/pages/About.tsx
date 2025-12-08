@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 interface OfficeBearerCard {
   name: string;
   position: string;
+  phone?: string;
 }
 
 const About = () => {
@@ -26,44 +27,51 @@ const About = () => {
   };
 
   const districtPresidents = [
-    'ப.மகேஸ்வரி',
-    'க.கிருஷ்ணமூர்த்தி',
-    'அ.அம்ஜத்',
-    'ப.விஜயகுமார்',
-    'செ.கார்த்திகேயன்',
-    'செ.சிவக்குமார்',
-    'சோ.கெளசிகா'
+    { name: 'ப.மகேஸ்வரி', phone: '80729 48403' },
+    { name: 'க.கிருஷ்ணமூர்த்தி', phone: '97894 81234' },
+    { name: 'அ.அம்ஜத்', phone: '97905 90070' },
+    { name: 'ப.விஜயகுமார்', phone: '95437 99509' },
+    { name: 'செ.கார்த்திகேயன்', phone: '99766 05255' },
+    { name: 'செ.சிவக்குமார்', phone: '86100 68388' },
+    { name: 'சோ.கவுசிகா', phone: '86385 26989' }
   ];
 
   const districtVicePresidentsRural = [
-    'ம.தங்கம்',
-    'ரா.வடிவேலு',
-    'மா.தணிகாசலம்',
-    'க.பன்னீர்செல்வம்',
-    'மா.முருகப்பெருமாள்',
-    'ச.அருண்குமார்',
-    'மு.இராஜேந்திரன்'
+    { name: 'ம.தங்கம்', phone: '92451 59566' },
+    { name: 'ரா.வடிவேலு', phone: '88870 20796' },
+    { name: 'மா.தணிகாசலம்', phone: '94428 02160' },
+    { name: 'மா.முருகப்பெருமாள்', phone: '99408 11626' },
+    { name: 'ச.அருண்குமார்', phone: '98656 29363' },
+    { name: 'க.பன்னீர்செல்வம்', phone: '98426 80089' },
+    { name: 'மு.இராஜேந்திரன்', phone: '99435 59299' }
   ];
 
   const districtJointSecretaries = [
-    'ச.ரஞ்சித்',
-    'க.நந்தினி',
-    'சி.காமேஷ்',
-    'நடராஜ்',
-    'ஜெ.அமுல்ராஜ்',
-    'பழனிவேல்'
+    { name: 'ச.ரஞ்சித்', phone: '89952 51811' },
+    { name: 'க.நந்தினி', phone: '88778 57463' },
+    { name: 'சி.காமேஷ்', phone: '86950 76057' },
+    { name: 'சு.நடராஜன்', phone: '89942 07056' },
+    { name: 'ஜெ.அமுல்ராஜ்', phone: '63749 90823' },
+    { name: 'மு.பழனிவேலன்', phone: '90803 23131' },
+    { name: 'வே.சித்ரா', phone: '96591 43554' },
+    { name: 'சா.மணிமேகலை', phone: '95972 82451' },
+    { name: 'க.கமல்', phone: '97154 50161' }
   ];
 
-  const keyOfficeBearers: OfficeBearerCard[] = [
-    { name: 'ரா.சரவணகுமார்', position: 'மாவட்ட தலைவர்' },
-    { name: 'க.சதீஸ்குமார்', position: 'மாவட்ட செயலாளர்' },
-    { name: 'ச.மனோஜ்', position: 'மாவட்ட பொருளாளர்' },
-    { name: 'ந.வெங்கடேசன்', position: 'மாவட்ட ஒருங்கிணைப்பாளர்' },
-    { name: 'ப.நவீன்குமார்', position: 'மாவட்ட விளம்பர செயலாளர்' },
-    { name: 'சந்திரமதி', position: 'மாவட்ட மகளிர் பிரிவு செயலாளர்' },
-    { name: 'து.சத்தியா கஸ்துரி', position: 'மாவட்ட மகளிர் பிரிவு இணை செயலாளர்' },
-    { name: 'வெ.ராஜேஷ்', position: 'மாநில நிர்வாகக் குழு உறுப்பினர்' },
-    { name: 'க.பாலசுப்ரமணியம்', position: 'மாநில செயலாளர்' }
+  interface OfficeBearerWithPhone extends OfficeBearerCard {
+    phone?: string;
+  }
+
+  const keyOfficeBearers: OfficeBearerWithPhone[] = [
+    { name: 'ரா.சரவணகுமார்', position: 'மாவட்ட தலைவர்', phone: '91596 56661' },
+    { name: 'க.சதீஸ்குமார்', position: 'மாவட்ட செயலாளர்', phone: '97892 33462' },
+    { name: 'ச.மனோஜ்', position: 'மாவட்ட பொருளாளர்', phone: '96774 40469' },
+    { name: 'ந.வெங்கடேசன்', position: 'மாவட்ட அமைப்புச் செயலாளர்', phone: '94891 66344' },
+    { name: 'ப.நவீன்குமார்', position: 'மாவட்ட பிரச்சார செயலாளர்', phone: '74022 16253' },
+    { name: 'ம.சந்திரமதி', position: 'மாவட்ட மகளிர் பிரிவு செயலாளர்', phone: '96295 62476' },
+    { name: 'து.சத்தியா', position: 'மாவட்ட மகளிர் பிரிவு இணை செயலாளர்', phone: '96294 25910' },
+    { name: 'வெ.ராஜேஷ்', position: 'மாநில செயற்குழு உறுப்பினர்', phone: '99523 41265' },
+    { name: 'க.பாலசுப்ரமணியம்', position: 'மாநில செயலாளர்', phone: '94423 34677' }
   ];
 
   return (
@@ -164,6 +172,9 @@ const About = () => {
                     <p className="text-primary font-semibold font-tamil">
                       {bearer.position}
                     </p>
+                    {bearer.phone && (
+                      <p className="text-sm text-gray-600 font-semibold mt-1">☎ {bearer.phone}</p>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -177,15 +188,18 @@ const About = () => {
             மாவட்ட துணைத் தலைவர்கள் (நகர்ப்புறம்)
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {districtPresidents.map((name, index) => (
+            {districtPresidents.map((person, index) => (
               <motion.div
                 key={index}
                 className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"
                 whileHover={{ scale: 1.05 }}
               >
                 <p className="text-lg font-semibold text-gray-800 font-tamil">
-                  {name}
+                  {person.name}
                 </p>
+                {person.phone && (
+                  <p className="text-sm text-primary font-semibold mt-2">☎ {person.phone}</p>
+                )}
               </motion.div>
             ))}
           </div>
@@ -197,15 +211,18 @@ const About = () => {
             மாவட்ட துணைத் தலைவர்கள் (கிராமப்புறம்)
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {districtVicePresidentsRural.map((name, index) => (
+            {districtVicePresidentsRural.map((person, index) => (
               <motion.div
                 key={index}
                 className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"
                 whileHover={{ scale: 1.05 }}
               >
                 <p className="text-lg font-semibold text-gray-800 font-tamil">
-                  {name}
+                  {person.name}
                 </p>
+                {person.phone && (
+                  <p className="text-sm text-primary font-semibold mt-2">☎ {person.phone}</p>
+                )}
               </motion.div>
             ))}
           </div>
@@ -217,15 +234,18 @@ const About = () => {
             மாவட்ட இணை செயலாளர்கள்
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-            {districtJointSecretaries.map((name, index) => (
+            {districtJointSecretaries.map((person, index) => (
               <motion.div
                 key={index}
                 className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"
                 whileHover={{ scale: 1.05 }}
               >
                 <p className="text-lg font-semibold text-gray-800 font-tamil">
-                  {name}
+                  {person.name}
                 </p>
+                {person.phone && (
+                  <p className="text-sm text-primary font-semibold mt-2">☎ {person.phone}</p>
+                )}
               </motion.div>
             ))}
           </div>

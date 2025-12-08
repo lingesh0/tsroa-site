@@ -11,19 +11,19 @@ const Contact = () => {
     {
       name: 'ரா.சரவணகுமார்',
       position: 'மாவட்ட தலைவர்',
-      phone: '+91 XXXXXXXXXX',
+      phone: '+91 91596 56661',
       email: 'president@tsroa-namakkal.org'
     },
     {
       name: 'க.சதீஸ்குமார்',
       position: 'மாவட்ட செயலாளர்',
-      phone: '+91 XXXXXXXXXX',
+      phone: '+91 97892 33462',
       email: 'secretary@tsroa-namakkal.org'
     },
     {
       name: 'ச.மனோஜ்',
       position: 'மாவட்ட பொருளாளர்',
-      phone: '+91 XXXXXXXXXX',
+      phone: '+91 96774 40469',
       email: 'treasurer@tsroa-namakkal.org'
     }
   ];
