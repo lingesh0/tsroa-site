@@ -65,7 +65,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <span className="inline-block bg-blue-900/90 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-2xl shadow-2xl backdrop-blur-sm mb-2 sm:mb-3 text-lg sm:text-2xl md:text-4xl">
-              தமிழ் மாநில வருவாய்த் துறை
+              தமிழ் மாநில வருவாய்த்துறை
             </span>
             <br />
             <span className="inline-block bg-blue-900/90 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-2xl shadow-2xl backdrop-blur-sm text-lg sm:text-2xl md:text-4xl">
