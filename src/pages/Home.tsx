@@ -36,6 +36,8 @@ const Home = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/images/office-building.png)' }}
+          role="img"
+          aria-label="TSROA Office Building - Tamil Nadu Revenue Department"
         ></div>
         
         {/* Thin Blue Tint Overlay */}
@@ -48,6 +50,13 @@ const Home = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-16 md:py-20"
         >
+          {/* Main H1 - Critical for SEO */}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 font-tamil drop-shadow-lg">
+            TSROA Union Namakkal
+          </h1>
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-blue-100 mb-6 sm:mb-8 font-tamil font-semibold drop-shadow">
+            தமிழ் மாநில வருவாய்த்துறை அலுவலர் சங்கம் - நாமக்கல் மாவட்டம்
+          </h2>
           {/* Logo with Strong Background */}
           <motion.div 
             className="flex justify-center mb-6 sm:mb-8"

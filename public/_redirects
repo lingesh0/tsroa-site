@@ -1,0 +1,15 @@
+# Redirect old domains to main domain
+https://tsroa.vercel.app/* https://tsroa-namakkal.vercel.app/:splat 301
+http://tsroa.vercel.app/* https://tsroa-namakkal.vercel.app/:splat 301
+http://tsroa-namakkal.vercel.app/* https://tsroa-namakkal.vercel.app/:splat 301
+
+# Ensure trailing slashes for consistency
+/about /about/ 301
+/events /events/ 301
+/announcements /announcements/ 301
+/gallery /gallery/ 301
+/contact /contact/ 301
+/membership /membership/ 301
+
+# Prevent duplicate content
+/index.html / 301
