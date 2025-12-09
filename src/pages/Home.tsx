@@ -28,7 +28,7 @@ const Home = () => {
         title="முகப்பு"
         description="தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம் (TSROA) நாமக்கல் - அலுவலர்களின் சங்கம், சேவைகள், நிகழ்வுகள் மற்றும் உறுப்பினர் விண்ணப்பம்"
         keywords="TSROA, நாமக்கல், வருவாய்த் துறை, அலுவலர் சங்கம், தமிழ் நாடு, அரசு"
-        url="https://tsroa-namakkal.vercel.app/"
+        url="https://tsroa.vercel.app/"
       />
       {/* Hero Section with Background Image */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">

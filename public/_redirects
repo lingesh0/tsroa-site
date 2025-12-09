@@ -1,7 +1,6 @@
-# Redirect old domains to main domain
-https://tsroa.vercel.app/* https://tsroa-namakkal.vercel.app/:splat 301
-http://tsroa.vercel.app/* https://tsroa-namakkal.vercel.app/:splat 301
-http://tsroa-namakkal.vercel.app/* https://tsroa-namakkal.vercel.app/:splat 301
+# Redirect to primary domain for consistency
+https://tsroa-namakkal.vercel.app/* https://tsroa.vercel.app/:splat 301
+http://tsroa-namakkal.vercel.app/* https://tsroa.vercel.app/:splat 301
 
 # Ensure trailing slashes for consistency
 /about /about/ 301
