@@ -27,7 +27,19 @@ const driveLinks: Record<string, string> = {
   'REVENUE STANDING ORDER-3 TAMIL.pdf': '1prnJrHQwMoB1tDHNplfJbA0dKfLLXKyI',
   'REVENUE STANDING ORDER-4 TAMIL.pdf': '1SJhGZTOcg2v5uoUGgUuwawgkT9EjTEmR',
   'vao matirial .pdf': '18X-H_PuhwMtUY4EZxc5lISyHpfsDj1Mx',
-  'Vao Notes By Ramki.pdf': '1ddIruH-OBiWo_fyFOCjSCmFp7xtWNELg'
+  'Vao Notes By Ramki.pdf': '1ddIruH-OBiWo_fyFOCjSCmFp7xtWNELg',
+  '531-04122024223214.pdf': '1BSRrOP11c3x-hb0fWjNjH6U9SZmKvtR1',
+  'ACE Scanner_2025_01_03.pdf': '1ix9NIiTf0mc2tlp6qhFADi4KrRCQq-7B',
+  'agri_t_ms_232_h1_2021.pdf': '1B8qL8NgC2TpeOArBxBUKCSy5WeqKCacZ',
+  'DOC-20250329-WA0005.pdf': '1o_MojUHIjH2ifEsfdQ3pIpzgAoLyHiWy',
+  'DocScanner 10 Sept 2025 5-43 pm.pdf': '17xk5wf_NPiXDTQ3Bc-IAGjJB2b5oGwMI',
+  'Document 319.pdf': '1Y3tOIk9g0aFzCHlQ_y0hARcG8VsiZqhd',
+  'G.O.MS.390_19.06.2025_US_1.pdf': '1TRgHX72gHLPArybrRgOzGZ1MaFuPFbPY',
+  'GUEST HOUSE RENT GO 2012.pdf': '1ftCnicYoDfI6feKc6ATKrK97Ppw8p4LQ',
+  'IT on encashment of UEL on private affairs clarification.pdf': '1d5eebZeG5KES9ZaYG1o6G1h843rlmh85',
+  'kalvettu 2.pdf': '1ZoP3kQaOkdWbH6zk497zCLouf0bD_BDW',
+  'LA - Arbitration post.pdf': '1ZoP3kQaOkdWbH6zk497zCLouf0bD_BDW',
+  'Vigilance Awareness Week Pledge_251026_213258.pdf': '1ZxWh5cRUHDjv2_PY3djAGQ02S0WAIq5o'
 };
 
 const buildDownloadLink = (fileName: string) => {
