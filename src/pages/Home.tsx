@@ -62,6 +62,7 @@ const Home = () => {
                 src="/tsroa-logo.png"
                 alt="TSROA Logo"
                 className="h-20 w-20 sm:h-28 sm:w-28 md:h-36 md:w-36 object-cover rounded-full"
+                loading="lazy"
               />
             </div>
           </motion.div>
