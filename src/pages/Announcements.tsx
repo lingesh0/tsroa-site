@@ -554,9 +554,7 @@ const Announcements = () => {
                     </div>
                   </div>
                   <a
-                    href={buildDownloadLink(doc.fileName)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={encodeURI(`/documents/${doc.fileName}`)}
                     download
                     className="flex-shrink-0 bg-primary text-white px-4 py-2 md:p-3 rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil text-sm md:text-base w-full sm:w-auto justify-center"
                     title="பதிவிறக்கம்"
@@ -635,9 +633,7 @@ const Announcements = () => {
                     </div>
                   </div>
                   <a
-                    href={buildDownloadLink(doc.fileName)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={encodeURI(`/documents/${doc.fileName}`)}
                     download
                     className="flex-shrink-0 bg-purple-600 text-white px-4 py-2 md:p-3 rounded-lg hover:bg-purple-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil text-sm md:text-base w-full sm:w-auto justify-center"
                     title="பதிவிறக்கம்"
