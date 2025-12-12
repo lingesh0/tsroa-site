@@ -143,12 +143,87 @@ const Events = () => {
           </motion.div>
 
           <div className="space-y-6">
+            {/* News 0: Department Exam Books Available */}
+            <motion.div
+              className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg shadow-xl p-6 border-l-4 border-green-600"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                    <span className="text-3xl">📚</span>
+                  </span>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="px-3 py-1 bg-green-600 text-white rounded-full text-xs font-bold font-tamil animate-pulse">
+                      புதியது
+                    </span>
+                    <span className="text-sm text-gray-500 font-tamil">
+                      📅 {new Date().toLocaleDateString('ta-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-green-900 font-tamil mb-3">
+                    துறை தேர்வு புத்தகங்கள் இப்போது கிடைக்கின்றன! 🎉
+                  </h3>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 mb-4">
+                    <p className="text-gray-700 font-tamil mb-3 leading-relaxed">
+                      TSROA நாமக்கல் மாவட்டம் அனைத்து வருவாய் துறை அலுவலர்களுக்காக துறை தேர்வுக்கான முக்கியமான புத்தகங்கள் மற்றும் வழிகாட்டிகளை இப்போது இணையதளத்தில் பதிவேற்றம் செய்துள்ளது.
+                    </p>
+                    <div className="space-y-2">
+                      <p className="font-tamil font-bold text-green-800">📖 கிடைக்கும் புத்தகங்கள்:</p>
+                      <ul className="space-y-1 text-gray-700 font-tamil text-sm ml-4">
+                        <li className="flex items-start">
+                          <span className="mr-2">✅</span>
+                          <span>Manana VAO Guide - கிராம நிர்வாக அலுவலர் வழிகாட்டி</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="mr-2">✅</span>
+                          <span>VAO Notes by Ramki - ராம்கி குறிப்புகள்</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="mr-2">✅</span>
+                          <span>VAO Material - பாடத்திட்ட பொருட்கள்</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="mr-2">✅</span>
+                          <span>வருவாய் நிலையான ஆணைகள் 1-4 (தமிழில்)</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="bg-green-100 border-l-4 border-green-600 p-4 rounded">
+                    <p className="text-green-900 font-tamil font-bold mb-2">
+                      🔔 எங்கிருந்து பதிவிறக்கம் செய்வது?
+                    </p>
+                    <p className="text-green-800 font-tamil text-sm mb-3">
+                      அறிவிப்புகள் பக்கத்தில் "துறை தேர்வு புத்தகங்கள்" பிரிவில் அனைத்து புத்தகங்களும் இலவசமாக பதிவிறக்கம் செய்ய கிடைக்கின்றன.
+                    </p>
+                    <a
+                      href="/announcements#department-books"
+                      className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-300 font-tamil text-sm"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      இப்போதே பதிவிறக்கம் செய்யவும்
+                    </a>
+                  </div>
+                  <p className="text-sm text-gray-600 font-tamil mt-4">
+                    💡 குறிப்பு: தொடர்ந்து புதிய புத்தகங்கள் மற்றும் பொருட்கள் சேர்க்கப்படும். தளத்தை தொடர்ந்து பார்வையிடவும்!
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
             {/* News 1: Government Gazette */}
             <motion.div
               className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-primary"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
             >
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
@@ -175,7 +250,7 @@ const Events = () => {
               className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-secondary"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
@@ -233,7 +308,7 @@ const Events = () => {
               className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-accent"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
@@ -288,7 +363,7 @@ const Events = () => {
               className="bg-gradient-to-r from-blue-50 to-primary/5 rounded-lg shadow p-6 border-l-4 border-primary"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
               <h4 className="text-lg font-bold text-primary font-tamil mb-3">
                 FEDRA சந்திப்பில் பங்கேற்ற ஒருங்கிணைப்பாளர்கள்:
