@@ -19,10 +19,9 @@ interface Document {
   category: string;
 }
 
-// Map specific large PDFs to Google Drive direct download links to avoid Git/LFS limits
+// Map specific large PDFs to Google Drive direct download links to avoid Git/GitHub size limits
 const driveLinks: Record<string, string> = {
   'Manana VAO guide.pdf': '11iwiijrg_qetPVgXFuNFdtPVhP1tQ9oo',
-  'This file is too large to preview': '1fUudbSolIBsyPGjRPO_kAURol3t2UlFr', // Standing Order 1
   'REVENUE STANDING ORDER-1 TAMIL.pdf': '1fUudbSolIBsyPGjRPO_kAURol3t2UlFr',
   'REVENUE STANDING ORDER-2 TAMIL.pdf': '186JYDO5YkU4eFnubualP31FFUdKzc6GS',
   'REVENUE STANDING ORDER-3 TAMIL.pdf': '1prnJrHQwMoB1tDHNplfJbA0dKfLLXKyI',
