@@ -249,6 +249,386 @@ const Home = () => {
           </div>
         </motion.div>
       </section>
+
+      {/* Namakkal Special Section */}
+      <section className="py-16 bg-gradient-to-b from-white to-blue-50">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          {/* Section Header */}
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 font-tamil">
+              நாமக்கல் — தமிழகத்தின் சிறந்த மாவட்டம்
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto mb-6"></div>
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed font-tamil">
+              நாமக்கல் என்பது தமிழ்நாட்டின் மத்தியப் பகுதியில் அமைந்துள்ள இயற்கை, தொழில், வரலாறு, கல்வி, வேளாண்மை என அனைத்திலும் சிறப்பு பெற்ற ஒரு மாவட்டமாகும். 
+              இங்கு கலாச்சார வளம், இயற்கை அழகு மற்றும் தொழில் முன்னேற்றம் ஒன்றிணைந்து, மாவட்டத்தை ஒரு தனித்துவமான அடையாளம் கொண்டதாக ஆக்குகிறது.
+            </p>
+          </motion.div>
+
+          {/* History & Culture */}
+          <motion.div variants={itemVariants} className="mb-16">
+            <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-8 md:p-12 border-2 border-orange-200 shadow-lg">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center font-tamil flex items-center justify-center gap-3">
+                <span>🕉️</span> வரலாறு & பண்பாடு
+              </h3>
+              <div className="space-y-6">
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3 font-tamil flex items-center gap-2">
+                    <span>🪨</span> நாமக்கல் பாறை
+                  </h4>
+                  <ul className="space-y-2 text-gray-700 font-tamil">
+                    <li className="flex items-start gap-2"><span className="text-orange-500">•</span> 65 மீட்டர் உயரம் கொண்ட இயற்கை பாறை</li>
+                    <li className="flex items-start gap-2"><span className="text-orange-500">•</span> கி.பி. 7–8ஆம் நூற்றாண்டில் ஏற்பட்ட வரலாற்றுப் பின்னணி</li>
+                    <li className="flex items-start gap-2"><span className="text-orange-500">•</span> பாண்டியர்கள் மற்றும் நாயக்கர் காலத்தின் சான்று</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3 font-tamil flex items-center gap-2">
+                    <span>🦁</span> நரசிம்மர் & ஆஞ்சநேயர் — ஆன்மீகப் பெருமைகள்
+                  </h4>
+                  <ul className="space-y-2 text-gray-700 font-tamil">
+                    <li className="flex items-start gap-2"><span className="text-orange-500">•</span> நரசிம்மர் கோவில் பாறைக்குள் செதுக்கப்பட்டுள்ள சிறப்பு</li>
+                    <li className="flex items-start gap-2"><span className="text-orange-500">•</span> 18 அடி உயர ஆஞ்சநேயர் சிலை — இந்தியாவின் உயரமானவை ஒன்றாகும்</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Tourist Places with Placeholder Images */}
+          <motion.div variants={itemVariants} className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center font-tamil">
+              புகழ்பெற்ற சுற்றுலா தளங்கள்
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <motion.div 
+                variants={itemVariants}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=800&auto=format&fit=crop" 
+                  alt="நாமக்கல் ஆஞ்சநேயர் கோயில்"
+                  className="w-full h-56 object-cover"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop';
+                  }}
+                />
+                <div className="p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">நாமக்கல் ஆஞ்சநேயர் கோயில்</h4>
+                  <p className="text-gray-600 font-tamil">18 அடி உயர பிரமாண்டமான ஆஞ்சநேயர் சிலை - இந்தியாவின் உயரமான சிலைகளில் ஒன்று.</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                variants={itemVariants}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop" 
+                  alt="நாமக்கல் கோட்டை"
+                  className="w-full h-56 object-cover"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=800&auto=format&fit=crop';
+                  }}
+                />
+                <div className="p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">நாமக்கல் கோட்டை</h4>
+                  <p className="text-gray-600 font-tamil">65 மீட்டர் பாறையின் மேல் அமைந்த வரலாற்று சிறப்பு மிக்க கோட்டை.</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                variants={itemVariants}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop" 
+                  alt="கொல்லி மலைகள்"
+                  className="w-full h-56 object-cover"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop';
+                  }}
+                />
+                <div className="p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">கொல்லி மலைகள்</h4>
+                  <p className="text-gray-600 font-tamil">70 மலை முடுக்குகளைக் கொண்ட சாலை, ஆகாய கங்கை நீர்வீழ்ச்சி மற்றும் இயற்கை அழகு.</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                variants={itemVariants}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              >
+                <img 
+                  src="https://images.news18.com/tamil/uploads/2022/07/namakkal-5.jpg?impolicy=website&width=827&height=620" 
+                  alt="நாமக்கல் நரசிம்மர் கோயில்"
+                  className="w-full h-56 object-cover"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop';
+                  }}
+                />
+                <div className="p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">நாமக்கல் நரசிம்மர் கோயில்</h4>
+                  <p className="text-gray-600 font-tamil">பாறைக்குள் செதுக்கப்பட்ட பழமையான கோயில் - 7ஆம் நூற்றாண்டு வரலாறு.</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                variants={itemVariants}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?q=80&w=800&auto=format&fit=crop" 
+                  alt="ஆகாய கங்கை நீர்வீழ்ச்சி"
+                  className="w-full h-56 object-cover"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?q=80&w=800&auto=format&fit=crop';
+                  }}
+                />
+                <div className="p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">ஆகாய கங்கை நீர்வீழ்ச்சி</h4>
+                  <p className="text-gray-600 font-tamil">கொல்லி மலையின் முக்கிய நீர்வீழ்ச்சி - இயற்கை மற்றும் ஆன்மிக தலம்.</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                variants={itemVariants}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1588013273468-315fd88ea34c?q=80&w=800&auto=format&fit=crop" 
+                  alt="பேரியசாமி கோயில்"
+                  className="w-full h-56 object-cover"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=800&auto=format&fit=crop';
+                  }}
+                />
+                <div className="p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">பேரியசாமி கோயில்</h4>
+                  <p className="text-gray-600 font-tamil">கொல்லி மலையின் முக்கிய ஆன்மீக மையம் மற்றும் பக்தர்களின் கூட்டம்.</p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Industry & Economy */}
+          <motion.div variants={itemVariants} className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center font-tamil flex items-center justify-center gap-3">
+              <span>🚛</span> தொழில் & பொருளாதாரம்
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <motion.div 
+                variants={itemVariants}
+                className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border-2 border-orange-200"
+              >
+                <div className="text-center">
+                  <div className="text-6xl mb-4">🥚</div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-3 font-tamil">முட்டை உற்பத்தி</h4>
+                  <p className="text-gray-600 font-tamil text-sm">இந்தியாவின் மிக அதிக முட்டை உற்பத்தி செய்யும் மாவட்டம் - "Egg City"</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                variants={itemVariants}
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border-2 border-blue-200"
+              >
+                <div className="text-center">
+                  <div className="text-6xl mb-4">🚚</div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-3 font-tamil">லாரி தொழில்</h4>
+                  <p className="text-gray-600 font-tamil text-sm">150+ லாரி உடற்கட்டுமான பணிமனைகள் - இந்தியாவின் பெரிய மையம்</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                variants={itemVariants}
+                className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border-2 border-green-200"
+              >
+                <div className="text-center">
+                  <div className="text-6xl mb-4">🛣️</div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-3 font-tamil">போக்குவரத்து</h4>
+                  <p className="text-gray-600 font-tamil text-sm">"Transport Hub of South India" - 4 தேசிய நெடுஞ்சாலைகள்</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                variants={itemVariants}
+                className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border-2 border-purple-200"
+              >
+                <div className="text-center">
+                  <div className="text-6xl mb-4">📚</div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-3 font-tamil">கல்வி மையம்</h4>
+                  <p className="text-gray-600 font-tamil text-sm">"Coaching Hub" - IAS/IPS/NEET/JEE பயிற்சி மையங்கள்</p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Agriculture */}
+          <motion.div variants={itemVariants} className="mb-16">
+            <div className="bg-gradient-to-r from-green-50 to-lime-50 rounded-2xl p-8 md:p-12 border-2 border-green-200 shadow-lg">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center font-tamil flex items-center justify-center gap-3">
+                <span>🌾</span> வேளாண்மை முன்னேற்றம்
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <h4 className="text-lg font-bold text-gray-900 mb-3 font-tamil">முக்கிய பயிர்கள்</h4>
+                  <ul className="space-y-1 text-gray-700 font-tamil text-sm">
+                    <li>• சோளம், மக்காச்சோளம்</li>
+                    <li>• நிலக்கடலை, கம்பு</li>
+                    <li>• பாசி மற்றும் எலுமிச்சை</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <h4 className="text-lg font-bold text-gray-900 mb-3 font-tamil">தோட்டக்கலை</h4>
+                  <ul className="space-y-1 text-gray-700 font-tamil text-sm">
+                    <li>• வாழை, மாம்பழம்</li>
+                    <li>• முந்திரி</li>
+                    <li>• மசாலா பயிர்கள்</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <h4 className="text-lg font-bold text-gray-900 mb-3 font-tamil">கோழி & பால்</h4>
+                  <ul className="space-y-1 text-gray-700 font-tamil text-sm">
+                    <li>🥛 பால் குளிரூட்டும் மையங்கள்</li>
+                    <li>🐔 கோழி வளர்ப்பு தொழில்</li>
+                    <li>🥚 முட்டை உற்பத்தி</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Food & Culture */}
+          <motion.div variants={itemVariants} className="mb-16">
+            <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-8 md:p-12 border-2 border-red-200 shadow-lg">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center font-tamil flex items-center justify-center gap-3">
+                <span>🍛</span> உணவு & பாரம்பரியம்
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-4 font-tamil">பிரபலமான உணவுகள்</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3 bg-white rounded-lg p-3 shadow-sm">
+                      <span className="text-2xl">🥚</span>
+                      <div>
+                        <p className="font-bold text-gray-900 font-tamil">முட்டை காரி</p>
+                        <p className="text-sm text-gray-600 font-tamil">நாமக்கல்லின் சிறப்பு உணவு</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 bg-white rounded-lg p-3 shadow-sm">
+                      <span className="text-2xl">🫓</span>
+                      <div>
+                        <p className="font-bold text-gray-900 font-tamil">முட்டை பரோட்டா</p>
+                        <p className="text-sm text-gray-600 font-tamil">உள்ளூர் சிறப்பு</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 bg-white rounded-lg p-3 shadow-sm">
+                      <span className="text-2xl">🌶️</span>
+                      <div>
+                        <p className="font-bold text-gray-900 font-tamil">கொல்லி மசாலா</p>
+                        <p className="text-sm text-gray-600 font-tamil">மலை மிளகு & மசாலா</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-4 font-tamil">விழாக்கள்</h4>
+                  <div className="space-y-2 text-gray-700 font-tamil">
+                    <p className="flex items-start gap-2 bg-white rounded-lg p-3 shadow-sm">
+                      <span className="text-xl">🎊</span> பவுடி திருவிழா
+                    </p>
+                    <p className="flex items-start gap-2 bg-white rounded-lg p-3 shadow-sm">
+                      <span className="text-xl">🚩</span> ஆஞ்சநேயர் பவனை ஊர்வலம்
+                    </p>
+                    <p className="flex items-start gap-2 bg-white rounded-lg p-3 shadow-sm">
+                      <span className="text-xl">⛰️</span> கொல்லி மலை திருவிழாக்கள்
+                    </p>
+                    <p className="flex items-start gap-2 bg-white rounded-lg p-3 shadow-sm">
+                      <span className="text-xl">🙏</span> ஐயனார் கோயில் ஊர்தி
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Why Namakkal is Special */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center font-tamil">
+              நாமக்கல் ஏன் சிறப்பு? 
+            </h3>
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 font-tamil">இந்தியாவின் முன்னணி முட்டை உற்பத்தி மாவட்டம்</p>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 font-tamil">லாரி தொழில் மையம்</p>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 font-tamil">கொல்லி மலை இயற்கை அழகு</p>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 font-tamil">வரலாற்று பாரம்பரியம்</p>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 font-tamil">சிறந்த கல்வி மையம்</p>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 font-tamil">போக்குவரத்து நெடுஞ்சாலை சந்திப்பு</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
     </div>
   );
 };
