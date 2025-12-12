@@ -19,6 +19,26 @@ interface Document {
   category: string;
 }
 
+// Map specific large PDFs to Google Drive direct download links to avoid Git/LFS limits
+const driveLinks: Record<string, string> = {
+  'Manana VAO guide.pdf': '11iwiijrg_qetPVgXFuNFdtPVhP1tQ9oo',
+  'This file is too large to preview': '1fUudbSolIBsyPGjRPO_kAURol3t2UlFr', // Standing Order 1
+  'REVENUE STANDING ORDER-1 TAMIL.pdf': '1fUudbSolIBsyPGjRPO_kAURol3t2UlFr',
+  'REVENUE STANDING ORDER-2 TAMIL.pdf': '186JYDO5YkU4eFnubualP31FFUdKzc6GS',
+  'REVENUE STANDING ORDER-3 TAMIL.pdf': '1prnJrHQwMoB1tDHNplfJbA0dKfLLXKyI',
+  'REVENUE STANDING ORDER-4 TAMIL.pdf': '1SJhGZTOcg2v5uoUGgUuwawgkT9EjTEmR',
+  'vao matirial .pdf': '18X-H_PuhwMtUY4EZxc5lISyHpfsDj1Mx',
+  'Vao Notes By Ramki.pdf': '1ddIruH-OBiWo_fyFOCjSCmFp7xtWNELg'
+};
+
+const buildDownloadLink = (fileName: string) => {
+  const driveId = driveLinks[fileName];
+  if (driveId) {
+    return `https://drive.google.com/uc?export=download&id=${driveId}`;
+  }
+  return encodeURI(`/documents/${fileName}`);
+};
+
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [loading, setLoading] = useState(true);
@@ -327,7 +347,9 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href={encodeURI('/documents/DepartmentEXAM-books/Manana VAO guide.pdf')}
+                  href={buildDownloadLink('Manana VAO guide.pdf')}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   download
                   className="flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil bg-green-600 text-white hover:bg-green-700 cursor-pointer"
                 >
@@ -363,7 +385,9 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href={encodeURI('/documents/DepartmentEXAM-books/Vao Notes By Ramki.pdf')}
+                  href={buildDownloadLink('Vao Notes By Ramki.pdf')}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   download
                   className="flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
                 >
@@ -399,7 +423,9 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href={encodeURI('/documents/DepartmentEXAM-books/vao matirial .pdf')}
+                  href={buildDownloadLink('vao matirial .pdf')}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   download
                   className="flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil bg-purple-600 text-white hover:bg-purple-700 cursor-pointer"
                 >
@@ -437,7 +463,9 @@ const Announcements = () => {
                     </div>
                   </div>
                   <a
-                    href={`/documents/DepartmentEXAM-books/REVENUE STANDING ORDER-${num} TAMIL.pdf`}
+                    href={buildDownloadLink(`REVENUE STANDING ORDER-${num} TAMIL.pdf`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     download
                     className="flex-shrink-0 bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil"
                   >
@@ -527,7 +555,9 @@ const Announcements = () => {
                     </div>
                   </div>
                   <a
-                    href={encodeURI(`/documents/${doc.fileName}`)}
+                    href={buildDownloadLink(doc.fileName)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     download
                     className="flex-shrink-0 bg-primary text-white px-4 py-2 md:p-3 rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil text-sm md:text-base w-full sm:w-auto justify-center"
                     title="பதிவிறக்கம்"
@@ -606,7 +636,9 @@ const Announcements = () => {
                     </div>
                   </div>
                   <a
-                    href={encodeURI(`/documents/${doc.fileName}`)}
+                    href={buildDownloadLink(doc.fileName)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     download
                     className="flex-shrink-0 bg-purple-600 text-white px-4 py-2 md:p-3 rounded-lg hover:bg-purple-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil text-sm md:text-base w-full sm:w-auto justify-center"
                     title="பதிவிறக்கம்"
