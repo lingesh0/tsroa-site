@@ -23,20 +23,19 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <>
       <SEO 
         title="முகப்பு"
-        description="தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம் (TSROA) நாமக்கல் - அலுவலர்களின் சங்கம், சேவைகள், நிகழ்வுகள் மற்றும் உறுப்பினர் விண்ணப்பம்"
+        description="தமிழ்நாடு வருவாய்த் துறை அலுவலர்களின் நலன் மற்றும் உரிமைகளை பாதுகாக்கும் நாமக்கல் மாவட்ட சங்கம்"
         keywords="TSROA, நாமக்கல், வருவாய்த் துறை, அலுவலர் சங்கம், தமிழ் நாடு, அரசு"
         url="https://tsroa.vercel.app/"
       />
       {/* Hero Section with Background Image */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image - Full Visibility */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/images/office-building.png)' }}
-          role="img"
           aria-label="TSROA Office Building - Tamil Nadu Revenue Department"
         ></div>
         
@@ -262,7 +261,7 @@ const Home = () => {
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 font-tamil">
-              நாமக்கல் — தமிழகத்தின் சிறந்த மாவட்டம்
+              நாமக்கல் தமிழகத்தின் சிறந்த மாவட்டம்
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed font-tamil">
@@ -275,12 +274,12 @@ const Home = () => {
           <motion.div variants={itemVariants} className="mb-16">
             <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-8 md:p-12 border-2 border-orange-200 shadow-lg">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center font-tamil flex items-center justify-center gap-3">
-                <span>🕉️</span> வரலாறு & பண்பாடு
+                <span></span> வரலாறு & பண்பாடு
               </h3>
               <div className="space-y-6">
                 <div className="bg-white rounded-xl p-6 shadow-md">
                   <h4 className="text-xl font-bold text-gray-900 mb-3 font-tamil flex items-center gap-2">
-                    <span>🪨</span> நாமக்கல் பாறை
+                    <span></span> நாமக்கல் பாறை
                   </h4>
                   <ul className="space-y-2 text-gray-700 font-tamil">
                     <li className="flex items-start gap-2"><span className="text-orange-500">•</span> 65 மீட்டர் உயரம் கொண்ட இயற்கை பாறை</li>
@@ -290,7 +289,7 @@ const Home = () => {
                 </div>
                 <div className="bg-white rounded-xl p-6 shadow-md">
                   <h4 className="text-xl font-bold text-gray-900 mb-3 font-tamil flex items-center gap-2">
-                    <span>🦁</span> நரசிம்மர் & ஆஞ்சநேயர் — ஆன்மீகப் பெருமைகள்
+                    <span></span> நரசிம்மர் & ஆஞ்சநேயர் — ஆன்மீகப் பெருமைகள்
                   </h4>
                   <ul className="space-y-2 text-gray-700 font-tamil">
                     <li className="flex items-start gap-2"><span className="text-orange-500">•</span> நரசிம்மர் கோவில் பாறைக்குள் செதுக்கப்பட்டுள்ள சிறப்பு</li>
@@ -312,7 +311,7 @@ const Home = () => {
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=800&auto=format&fit=crop" 
+                  src="https://imgs.search.brave.com/CahzjzW8D9uabOyyGrQJ9Dcz1TxDn_HOc5l0fMuVVrA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaGluZHVzdGFu/dGltZXMuY29tL3Rh/bWlsL2ltZy8yMDIz/LzA3LzA2LzU1MHgz/MDkvQW5qYW5leWFy/XzE2ODg2NzQ1NjMx/ODlfMTY4ODY3NDU3/NjIxMC5qcGc" 
                   alt="நாமக்கல் ஆஞ்சநேயர் கோயில்"
                   className="w-full h-56 object-cover"
                   loading="lazy"
@@ -331,7 +330,8 @@ const Home = () => {
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop" 
+                  src="https://imgs.search.brave.com/-Vzo09twS_Bj_wzJdX25znWdgJdZ_M_we9wfUQck77s/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/czN3YWFzLmdvdi5p/bi9zM2I5MjI4ZTA5/NjJhNzhiODRmM2Q1/ZDkyZjRmYWEwMDBi/L3VwbG9hZHMvYmZp/X3RodW1iLzIwMTgw/NTAzNjgtb2x3Ynlu/YmRxcDBxcTl3dGVt/ZnE1c24yc2d4dThm/MDJkaXh1aHE4NnB1/LmpwZw
+" 
                   alt="நாமக்கல் கோட்டை"
                   className="w-full h-56 object-cover"
                   loading="lazy"
@@ -350,8 +350,8 @@ const Home = () => {
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop" 
-                  alt="கொல்லி மலைகள்"
+                  src="https://imgs.search.brave.com/NXQtTN8f3L_Wv_LW17CY6UZGNBMBVb1RxMJCTfLMIHc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZ29vZHJldHVy/bnMuaW4vdGEvaW1n/LzIwMjQvMDcva29s/bGkxLTE3MjE0NTM4/MTUuanBn" 
+                  alt="கொல்லி மலை"
                   className="w-full h-56 object-cover"
                   loading="lazy"
                   onError={(e) => {
@@ -371,7 +371,7 @@ const Home = () => {
                 <img 
                   src="https://images.news18.com/tamil/uploads/2022/07/namakkal-5.jpg?impolicy=website&width=827&height=620" 
                   alt="நாமக்கல் நரசிம்மர் கோயில்"
-                  className="w-full h-56 object-cover"
+                  className="w-full aspect-[16/9] object-cover"
                   loading="lazy"
                   onError={(e) => {
                     e.currentTarget.src = 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop';
@@ -388,7 +388,7 @@ const Home = () => {
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?q=80&w=800&auto=format&fit=crop" 
+                  src="https://imgs.search.brave.com/aMLO__Slh4va-qdh7_W2NFU_1Z5UZbrMcp3335c0zVQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5tYWFsYWltYWxh/ci5jb20vaC11cGxv/YWQvMjAyMi8wNy8z/MC8xNzM4MjMxLTAz/LWtvbGxpLWhpbHMu/anBn" 
                   alt="ஆகாய கங்கை நீர்வீழ்ச்சி"
                   className="w-full h-56 object-cover"
                   loading="lazy"
@@ -407,7 +407,7 @@ const Home = () => {
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1588013273468-315fd88ea34c?q=80&w=800&auto=format&fit=crop" 
+                  src="https://imgs.search.brave.com/wsuujmyV1HsOMB8uOaeazd64H6b289CaMvXqiZD2TDw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9kL2QyL01h/c2lfcGVyaXlhc2Ft/eV90ZW1wbGVfa29s/bGltYWxhaS5qcGcv/OTYwcHgtTWFzaV9w/ZXJpeWFzYW15X3Rl/bXBsZV9rb2xsaW1h/bGFpLmpwZw" 
                   alt="பேரியசாமி கோயில்"
                   className="w-full h-56 object-cover"
                   loading="lazy"
@@ -510,60 +510,6 @@ const Home = () => {
             </div>
           </motion.div>
 
-          {/* Food & Culture */}
-          <motion.div variants={itemVariants} className="mb-16">
-            <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-8 md:p-12 border-2 border-red-200 shadow-lg">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center font-tamil flex items-center justify-center gap-3">
-                <span>🍛</span> உணவு & பாரம்பரியம்
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-4 font-tamil">பிரபலமான உணவுகள்</h4>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3 bg-white rounded-lg p-3 shadow-sm">
-                      <span className="text-2xl">🥚</span>
-                      <div>
-                        <p className="font-bold text-gray-900 font-tamil">முட்டை காரி</p>
-                        <p className="text-sm text-gray-600 font-tamil">நாமக்கல்லின் சிறப்பு உணவு</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 bg-white rounded-lg p-3 shadow-sm">
-                      <span className="text-2xl">🫓</span>
-                      <div>
-                        <p className="font-bold text-gray-900 font-tamil">முட்டை பரோட்டா</p>
-                        <p className="text-sm text-gray-600 font-tamil">உள்ளூர் சிறப்பு</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 bg-white rounded-lg p-3 shadow-sm">
-                      <span className="text-2xl">🌶️</span>
-                      <div>
-                        <p className="font-bold text-gray-900 font-tamil">கொல்லி மசாலா</p>
-                        <p className="text-sm text-gray-600 font-tamil">மலை மிளகு & மசாலா</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-4 font-tamil">விழாக்கள்</h4>
-                  <div className="space-y-2 text-gray-700 font-tamil">
-                    <p className="flex items-start gap-2 bg-white rounded-lg p-3 shadow-sm">
-                      <span className="text-xl">🎊</span> பவுடி திருவிழா
-                    </p>
-                    <p className="flex items-start gap-2 bg-white rounded-lg p-3 shadow-sm">
-                      <span className="text-xl">🚩</span> ஆஞ்சநேயர் பவனை ஊர்வலம்
-                    </p>
-                    <p className="flex items-start gap-2 bg-white rounded-lg p-3 shadow-sm">
-                      <span className="text-xl">⛰️</span> கொல்லி மலை திருவிழாக்கள்
-                    </p>
-                    <p className="flex items-start gap-2 bg-white rounded-lg p-3 shadow-sm">
-                      <span className="text-xl">🙏</span> ஐயனார் கோயில் ஊர்தி
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
           {/* Why Namakkal is Special */}
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center font-tamil">
@@ -629,7 +575,7 @@ const Home = () => {
           </motion.div>
         </motion.div>
       </section>
-    </div>
+    </>
   );
 };
 

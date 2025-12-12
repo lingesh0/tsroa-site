@@ -29,8 +29,8 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-12">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-8 sm:py-12">
+      <div className="container mx-auto px-3 sm:px-4">
         {/* Header */}
         <motion.div
           className="text-center mb-12"
@@ -38,24 +38,24 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4 font-tamil">
+          <h1 className="text-3xl md:text-5xl font-bold text-primary mb-3 sm:mb-4 font-tamil">
             தொடர்பு
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
-          <p className="text-gray-600 font-tamil text-lg">
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4 sm:mb-6"></div>
+          <p className="text-gray-600 font-tamil text-base sm:text-lg">
             எங்களை தொடர்பு கொள்ளுங்கள்
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
           <motion.div className="space-y-6" {...fadeIn}>
             {/* Office Address */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-start space-x-4 mb-4">
-                <div className="bg-primary bg-opacity-10 rounded-full p-3">
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+              <div className="flex items-start space-x-3 sm:space-x-4 mb-3 sm:mb-4">
+                <div className="bg-primary bg-opacity-10 rounded-full p-2 sm:p-3">
                   <svg
-                    className="w-8 h-8 text-primary"
+                    className="w-6 h-6 sm:w-8 sm:h-8 text-primary"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -67,10 +67,10 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2 font-tamil">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1 sm:mb-2 font-tamil">
                     அலுவலக முகவரி
                   </h3>
-                  <p className="text-gray-700 font-tamil leading-relaxed">
+                  <p className="text-gray-700 font-tamil leading-relaxed text-sm sm:text-base">
                     வருவாய்த்துறை அலுவலர்கள் மனமகிழ் மன்றம்,<br />
                     வட்டாட்சியர் அலுவலகம்,<br />
                     நாமக்கல் – 637001<br />
@@ -81,11 +81,11 @@ const Contact = () => {
             </div>
 
             {/* Registration Details */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-start space-x-4">
-                <div className="bg-primary bg-opacity-10 rounded-full p-3">
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="bg-primary bg-opacity-10 rounded-full p-2 sm:p-3">
                   <svg
-                    className="w-8 h-8 text-primary"
+                    className="w-6 h-6 sm:w-8 sm:h-8 text-primary"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -97,10 +97,10 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2 font-tamil">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 font-tamil">
                     பதிவு விவரங்கள்
                   </h3>
-                  <p className="text-gray-700 font-tamil">
+                  <p className="text-gray-700 font-tamil text-sm sm:text-base">
                     <span className="font-semibold">பதிவு எண்:</span> 5/2016<br />
                     <span className="font-semibold">அமைப்பு:</span> தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம்
                   </p>
@@ -109,32 +109,32 @@ const Contact = () => {
             </div>
 
             {/* Contact Persons */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6 font-tamil">
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6 font-tamil">
                 தொடர்பு நபர்கள்
               </h3>
               <div className="space-y-6">
                 {contactPersons.map((person, index) => (
                   <div key={index} className="border-l-4 border-primary pl-4">
-                    <h4 className="text-lg font-bold text-gray-800 font-tamil">
+                    <h4 className="text-base sm:text-lg font-bold text-gray-800 font-tamil">
                       {person.name}
                     </h4>
-                    <p className="text-primary font-semibold font-tamil mb-2">
+                    <p className="text-primary font-semibold font-tamil mb-1 sm:mb-2 text-sm sm:text-base">
                       {person.position}
                     </p>
                     <div className="space-y-1 text-gray-600">
                       <div className="flex items-center space-x-2">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                         </svg>
-                        <span className="text-sm">{person.phone}</span>
+                        <span className="text-xs sm:text-sm">{person.phone}</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                           <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                         </svg>
-                        <span className="text-sm">{person.email}</span>
+                        <span className="text-xs sm:text-sm">{person.email}</span>
                       </div>
                     </div>
                   </div>
@@ -145,15 +145,15 @@ const Contact = () => {
 
           {/* Map */}
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-8"
+            className="bg-white rounded-xl shadow-lg p-6 sm:p-8"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 font-tamil">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6 font-tamil">
               இருப்பிடம்
             </h3>
-            <div className="aspect-video rounded-lg overflow-hidden shadow-md">
+            <div className="aspect-[16/10] sm:aspect-video rounded-lg overflow-hidden shadow-md">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.0!2d78.1667!3d11.2167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDEzJzAwLjEiTiA3OMKwMTAnMDAuMSJF!5e0!3m2!1sen!2sin!4v1234567890"
                 width="100%"
@@ -165,7 +165,7 @@ const Contact = () => {
                 title="Office Location"
               ></iframe>
             </div>
-            <p className="mt-4 text-gray-600 font-tamil text-sm">
+            <p className="mt-3 sm:mt-4 text-gray-600 font-tamil text-xs sm:text-sm">
               வட்டாட்சியர் அலுவலகம், நாமக்கல்
             </p>
           </motion.div>
