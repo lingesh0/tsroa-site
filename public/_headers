@@ -22,3 +22,9 @@
   
 /images/*
   Cache-Control: public, max-age=604800
+
+/documents/*.pdf
+  Content-Type: application/pdf
+  Content-Disposition: inline
+  Cache-Control: public, max-age=604800
+  X-Content-Type-Options: nosniff
