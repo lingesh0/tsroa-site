@@ -66,13 +66,22 @@ const Admin = () => {
 
   const deleteApplication = async (appId: string) => {
     try {
-      const confirmed = window.confirm('இந்த விண்ணப்பத்தை நீக்க வேண்டுமா? இந்த செயல் மாற்ற முடியாது।');
-      if (confirmed) {
-        await deleteDoc(doc(db, 'membershipApplications', appId));
-        setSelectedApp(null);
+      // Require authenticated user before attempting delete
+      if (!auth.currentUser) {
+        alert('தயவுசெய்து முதலில் உள்நுழைக. உள்நுழைந்த பிறகு நீக்கலாம்.');
+        navigate('/login');
+        return;
       }
-    } catch (error) {
+
+      const confirmed = window.confirm('இந்த விண்ணப்பத்தை நீக்க வேண்டுமா? இந்த செயல் மாற்ற முடியாது.');
+      if (!confirmed) return;
+
+      await deleteDoc(doc(db, 'membershipApplications', appId));
+      setSelectedApp(null);
+    } catch (error: any) {
       console.error('Error deleting application:', error);
+      const msg = error?.message || 'நீக்கும்போது பிழை ஏற்பட்டது.';
+      alert(`நீக்க முடியவில்லை: ${msg}\n\nகாரணங்கள்: 1) அனுமதி இல்லை 2) நெட்வொர்க்/Ad-blocker 3) விதிமுறைகள் புதுப்பிக்கப்படவில்லை`);
     }
   };
 
