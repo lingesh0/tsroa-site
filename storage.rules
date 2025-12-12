@@ -26,6 +26,18 @@ service firebase.storage {
                       request.resource.size < 10 * 1024 * 1024 &&
                       request.resource.contentType == 'application/pdf';
     }
+
+    // ========= BOOKS (VAO Study Materials) =========
+    match /books/{bookId} {
+      // Public can read books/study materials
+      allow read: if true;
+      
+      // Only admins can upload/delete books
+      // Validate: only PDFs, max 50MB for large study materials
+      allow write: if isAdmin() &&
+                      request.resource.size < 50 * 1024 * 1024 &&
+                      request.resource.contentType == 'application/pdf';
+    }
     
     // ========= DEFAULT - DENY ALL =========
     match /{allPaths=**} {

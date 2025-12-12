@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
-import { db } from '../firebase';
+import { ref, getDownloadURL } from 'firebase/storage';
+import { db, storage } from '../firebase';
 import { motion } from 'framer-motion';
 
 interface Announcement {
@@ -22,6 +23,7 @@ interface Document {
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [loading, setLoading] = useState(true);
+  const [bookUrls, setBookUrls] = useState<Record<string, string>>({});
 
   // Documents list from public/documents folder
   const documents: Document[] = [
@@ -68,6 +70,33 @@ const Announcements = () => {
     });
 
     return () => unsubscribe();
+  }, []);
+
+  // Fetch PDF URLs from Firebase Storage
+  useEffect(() => {
+    const fetchBookUrls = async () => {
+      const urls: Record<string, string> = {};
+      
+      const bookFiles = [
+        'Manana VAO guide.pdf',
+        'Vao Notes By Ramki.pdf',
+        'VAO Material.pdf'
+      ];
+
+      for (const file of bookFiles) {
+        try {
+          const fileRef = ref(storage, `books/${file}`);
+          const url = await getDownloadURL(fileRef);
+          urls[file] = url;
+        } catch (error) {
+          console.warn(`Failed to fetch URL for ${file}:`, error);
+        }
+      }
+
+      setBookUrls(urls);
+    };
+
+    fetchBookUrls();
   }, []);
 
   const getPriorityColor = (priority: string) => {
@@ -281,14 +310,24 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href={encodeURI("/documents/DepartmentEXAM-books/Manana VAO guide.pdf")}
-                  download
-                  className="flex-shrink-0 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil"
+                  href={bookUrls['Manana VAO guide.pdf'] || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil ${
+                    bookUrls['Manana VAO guide.pdf']
+                      ? 'bg-green-600 text-white hover:bg-green-700 cursor-pointer'
+                      : 'bg-gray-400 text-gray-600 cursor-not-allowed opacity-50'
+                  }`}
+                  onClick={(e) => {
+                    if (!bookUrls['Manana VAO guide.pdf']) {
+                      e.preventDefault();
+                    }
+                  }}
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
-                  பதிவிறக்கம்
+                  {bookUrls['Manana VAO guide.pdf'] ? 'பார்க்க / பதிவிறக்க' : 'வெற்றே'}
                 </a>
               </div>
             </motion.div>
@@ -317,14 +356,24 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href={encodeURI("/documents/DepartmentEXAM-books/Vao Notes By Ramki.pdf")}
-                  download
-                  className="flex-shrink-0 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil"
+                  href={bookUrls['Vao Notes By Ramki.pdf'] || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil ${
+                    bookUrls['Vao Notes By Ramki.pdf']
+                      ? 'bg-blue-600 text-white hover:bg-blue-700 cursor-pointer'
+                      : 'bg-gray-400 text-gray-600 cursor-not-allowed opacity-50'
+                  }`}
+                  onClick={(e) => {
+                    if (!bookUrls['Vao Notes By Ramki.pdf']) {
+                      e.preventDefault();
+                    }
+                  }}
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
-                  பதிவிறக்கம்
+                  {bookUrls['Vao Notes By Ramki.pdf'] ? 'பார்க்க / பதிவிறக்க' : 'வெற்றே'}
                 </a>
               </div>
             </motion.div>
@@ -353,14 +402,24 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href={encodeURI("/documents/DepartmentEXAM-books/vao matirial .pdf")}
-                  download
-                  className="flex-shrink-0 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil"
+                  href={bookUrls['VAO Material.pdf'] || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil ${
+                    bookUrls['VAO Material.pdf']
+                      ? 'bg-purple-600 text-white hover:bg-purple-700 cursor-pointer'
+                      : 'bg-gray-400 text-gray-600 cursor-not-allowed opacity-50'
+                  }`}
+                  onClick={(e) => {
+                    if (!bookUrls['VAO Material.pdf']) {
+                      e.preventDefault();
+                    }
+                  }}
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
-                  பதிவிறக்கம்
+                  {bookUrls['VAO Material.pdf'] ? 'பார்க்க / பதிவிறக்க' : 'வெற்றே'}
                 </a>
               </div>
             </motion.div>
