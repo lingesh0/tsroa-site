@@ -27,11 +27,11 @@ const Navbar = () => {
               alt="TSROA Logo"
               className="h-14 w-14 object-cover rounded-full bg-white p-1"
             />
-            <div className="hidden md:block">
-              <h1 className="text-lg font-bold text-primary leading-tight">
+            <div className="hidden md:flex flex-col justify-center leading-snug">
+              <h1 className="text-lg font-bold text-primary leading-snug">
                 தமிழ் மாநில வருவாய்த்துறை
               </h1>
-              <p className="text-sm text-gray-600">அலுவலர் சங்கம் - நாமக்கல்</p>
+              <p className="text-sm text-gray-600 leading-snug">அலுவலர் சங்கம் - நாமக்கல்</p>
             </div>
           </Link>
 
