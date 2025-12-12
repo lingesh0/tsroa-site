@@ -281,7 +281,7 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href="/documents/DepartmentEXAM-books/Manana VAO guide.pdf"
+                  href={encodeURI("/documents/DepartmentEXAM-books/Manana VAO guide.pdf")}
                   download
                   className="flex-shrink-0 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil"
                 >
@@ -317,7 +317,7 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href="/documents/DepartmentEXAM-books/Vao Notes By Ramki.pdf"
+                  href={encodeURI("/documents/DepartmentEXAM-books/Vao Notes By Ramki.pdf")}
                   download
                   className="flex-shrink-0 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil"
                 >
@@ -353,7 +353,7 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href="/documents/DepartmentEXAM-books/vao matirial .pdf"
+                  href={encodeURI("/documents/DepartmentEXAM-books/vao matirial .pdf")}
                   download
                   className="flex-shrink-0 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil"
                 >
@@ -474,7 +474,7 @@ const Announcements = () => {
                     </div>
                   </div>
                   <a
-                    href={`/documents/${doc.fileName}`}
+                    href={encodeURI(`/documents/${doc.fileName}`)}
                     download
                     className="flex-shrink-0 bg-primary text-white px-4 py-2 md:p-3 rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil text-sm md:text-base w-full sm:w-auto justify-center"
                     title="பதிவிறக்கம்"
