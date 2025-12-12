@@ -32,8 +32,9 @@ service cloud.firestore {
       // Any logged-in user can read and update
       allow read, update: if isAuthenticated();
 
-      // Only admins can delete
-      allow delete: if isAdmin();
+      // Allow delete for any authenticated user (temporary fix)
+      // NOTE: For stricter control, revert to `isAdmin()` when admin claims are set.
+      allow delete: if isAuthenticated();
     }
 
     // USERS COLLECTION (ADMIN ONLY)
