@@ -327,7 +327,7 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href={encodeURI('/pdfs/Manana VAO guide.pdf')}
+                  href={encodeURI('/documents/DepartmentEXAM-books/Manana VAO guide.pdf')}
                   download
                   className="flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil bg-green-600 text-white hover:bg-green-700 cursor-pointer"
                 >
@@ -363,7 +363,7 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href={encodeURI('/pdfs/Vao Notes By Ramki.pdf')}
+                  href={encodeURI('/documents/DepartmentEXAM-books/Vao Notes By Ramki.pdf')}
                   download
                   className="flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
                 >
@@ -399,7 +399,7 @@ const Announcements = () => {
                   </div>
                 </div>
                 <a
-                  href={encodeURI('/pdfs/VAO Material.pdf')}
+                  href={encodeURI('/documents/DepartmentEXAM-books/vao matirial .pdf')}
                   download
                   className="flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil bg-purple-600 text-white hover:bg-purple-700 cursor-pointer"
                 >
