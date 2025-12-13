@@ -33,7 +33,7 @@ const About = () => {
     { name: 'ப.விஜயகுமார்', phone: '95437 99509' },
     { name: 'செ.கார்த்திகேயன்', phone: '99766 05255' },
     { name: 'செ.சிவக்குமார்', phone: '86100 68388' },
-    { name: 'சோ.கவுசிகா', phone: '86385 26989' }
+    { name: 'சோ.கவுசிகா', phone: '6385269879' }
   ];
 
   const districtVicePresidentsRural = [
