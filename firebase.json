@@ -8,17 +8,29 @@
     ],
     "rewrites": [
       {
+        "source": "/api/**",
+        "destination": "/api"
+      },
+      {
+        "source": "!/favicon-*.png",
+        "destination": "/index.html"
+      },
+      {
+        "source": "!/**/*.*",
+        "destination": "/index.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
     ],
     "headers": [
       {
-        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|ico|woff|woff2)",
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=31536000"
+            "value": "max-age=31536000, public, immutable"
           }
         ]
       },
@@ -27,11 +39,21 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=31536000"
+            "value": "max-age=31536000, public, immutable"
+          }
+        ]
+      },
+      {
+        "source": "/index.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
           }
         ]
       }
-    ]
+    ],
+    "cleanUrls": true
   },
   "firestore": {
     "rules": "firestore.rules",
