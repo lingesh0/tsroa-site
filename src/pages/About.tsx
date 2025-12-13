@@ -58,6 +58,11 @@ const About = () => {
     { name: 'க.கமல்', phone: '97154 50161' }
   ];
 
+  const womenWingJointSecretaries = [
+    { name: 'து.சத்தியா', phone: '96294 25910' },
+    { name: 'த.கஸ்தூரி', phone: '79045 14523' }
+  ];
+
   interface OfficeBearerWithPhone extends OfficeBearerCard {
     phone?: string;
   }
@@ -69,8 +74,6 @@ const About = () => {
     { name: 'ந.வெங்கடேசன்', position: 'மாவட்ட அமைப்புச் செயலாளர்', phone: '94891 66344' },
     { name: 'ப.நவீன்குமார்', position: 'மாவட்ட பிரச்சார செயலாளர்', phone: '74022 16253' },
     { name: 'ம.சந்திரமதி', position: 'மாவட்ட மகளிர் பிரிவு செயலாளர்', phone: '96295 62476' },
-    { name: 'து.சத்தியா', position: 'மாவட்ட மகளிர் பிரிவு இணை செயலாளர்', phone: '96294 25910' },
-    { name: 'த.கஸ்தூரி', position: 'மாவட்ட மகளிரணி இணைச் செயலாளர்', phone: '79045 14523' },
     { name: 'வெ.ராஜேஷ்', position: 'மாநில செயற்குழு உறுப்பினர்', phone: '99523 41265' },
     { name: 'க.பாலசுப்ரமணியம்', position: 'மாநில செயலாளர்', phone: '94423 34677' }
   ];
@@ -209,7 +212,7 @@ const About = () => {
         {/* District Vice Presidents (Rural) */}
         <motion.div className="mb-12" variants={fadeInVariants} {...fadeIn}>
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-tamil">
-            மாவட்ட துணைத் தலைவர்கள் (கிராமப்புறம்)
+            மாவட்ட துணைத் தலைவர்கள் (புற நகரம்)
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {districtVicePresidentsRural.map((person, index) => (
@@ -236,6 +239,29 @@ const About = () => {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
             {districtJointSecretaries.map((person, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"
+                whileHover={{ scale: 1.05 }}
+              >
+                <p className="text-lg font-semibold text-gray-800 font-tamil">
+                  {person.name}
+                </p>
+                {person.phone && (
+                  <p className="text-sm text-primary font-semibold mt-2">☎ {person.phone}</p>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Women's Wing Joint Secretaries */}
+        <motion.div className="mb-12" variants={fadeInVariants} {...fadeIn}>
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-tamil">
+            மாவட்ட மகளிரணி இணைச் செயலாளர்
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+            {womenWingJointSecretaries.map((person, index) => (
               <motion.div
                 key={index}
                 className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"

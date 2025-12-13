@@ -407,16 +407,16 @@ const Home = () => {
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
               >
                 <img 
-                  src="https://imgs.search.brave.com/wsuujmyV1HsOMB8uOaeazd64H6b289CaMvXqiZD2TDw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9kL2QyL01h/c2lfcGVyaXlhc2Ft/eV90ZW1wbGVfa29s/bGltYWxhaS5qcGcv/OTYwcHgtTWFzaV9w/ZXJpeWFzYW15X3Rl/bXBsZV9rb2xsaW1h/bGFpLmpwZw" 
+                  src="https://imgs.search.brave.com/Ji-cYRNmji9p2AAvGsAg82ru4A1x84qRyXeISW1RmMI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/Lnplbml0aGhvbGlk/YXlzLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyNC8wOS9p/bWFnZS03Ny5wbmc" 
                   alt="பேரியசாமி கோயில்"
                   className="w-full h-56 object-cover"
                   loading="lazy"
                   onError={(e) => {
-                    e.currentTarget.src = 'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=800&auto=format&fit=crop';
+                    e.currentTarget.src = 'https://imgs.search.brave.com/Ji-cYRNmji9p2AAvGsAg82ru4A1x84qRyXeISW1RmMI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/Lnplbml0aGhvbGlk/YXlzLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyNC8wOS9p/bWFnZS03Ny5wbmc';
                   }}
                 />
                 <div className="p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">பேரியசாமி கோயில்</h4>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">பேரியசாமி கோயில் கொல்லிமலை</h4>
                   <p className="text-gray-600 font-tamil">கொல்லி மலையின் முக்கிய ஆன்மீக மையம் மற்றும் பக்தர்களின் கூட்டம்.</p>
                 </div>
               </motion.div>
@@ -426,7 +426,7 @@ const Home = () => {
           {/* Industry & Economy */}
           <motion.div variants={itemVariants} className="mb-16">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center font-tamil flex items-center justify-center gap-3">
-              <span>🚛</span> தொழில் & பொருளாதாரம்
+              <span></span> தொழில் & பொருளாதாரம்
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <motion.div 
