@@ -67,6 +67,12 @@ const About = () => {
     { name: 'த.கஸ்தூரி', phone: '79045 14523' }
   ];
 
+  // Additional officers to show as normal cards before the women's wing section
+  const organizingAndPublicitySecretaries = [
+    { name: 'ந.வெங்கடேசன்', position: 'மாவட்ட அமைப்புச் செயலாளர்', phone: '94891 66344' },
+    { name: 'ப.நவீன்குமார்', position: 'மாவட்ட பிரச்சார செயலாளர்', phone: '74022 16253' }
+  ];
+
   interface OfficeBearerWithPhone extends OfficeBearerCard {
     phone?: string;
   }
@@ -75,8 +81,6 @@ const About = () => {
     { name: 'ரா.சரவணகுமார்', position: 'மாவட்டத்தலைவர்', phone: '91596 56661' },
     { name: 'க.சதீஸ்குமார்', position: 'மாவட்ட செயலாளர்', phone: '97892 33462' },
     { name: 'ச.மனோஜ்', position: 'மாவட்ட பொருளாளர்', phone: '96774 40469' },
-    { name: 'ந.வெங்கடேசன்', position: 'மாவட்ட அமைப்புச் செயலாளர்', phone: '94891 66344' },
-    { name: 'ப.நவீன்குமார்', position: 'மாவட்ட பிரச்சார செயலாளர்', phone: '74022 16253' },
     { name: 'வெ.ராஜேஷ்', position: 'மாநில செயற்குழு உறுப்பினர்', phone: '99523 41265' },
     { name: 'க.பாலசுப்ரமணியம்', position: 'மாநில செயலாளர்', phone: '94423 34677' }
   ];
@@ -249,6 +253,32 @@ const About = () => {
               >
                 <p className="text-lg font-semibold text-gray-800 font-tamil">
                   {person.name}
+                </p>
+                {person.phone && (
+                  <p className="text-sm text-primary font-semibold mt-2">☎ {person.phone}</p>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Organizing & Publicity Secretaries (normal cards) */}
+        <motion.div className="mb-12" variants={fadeInVariants} {...fadeIn}>
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-tamil">
+            மாவட்ட அமைப்புச் செயலாளர் & மாவட்ட பிரச்சார செயலாளர்
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+            {organizingAndPublicitySecretaries.map((person, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"
+                whileHover={{ scale: 1.05 }}
+              >
+                <p className="text-lg font-semibold text-gray-800 font-tamil">
+                  {person.name}
+                </p>
+                <p className="text-primary font-semibold font-tamil">
+                  {person.position}
                 </p>
                 {person.phone && (
                   <p className="text-sm text-primary font-semibold mt-2">☎ {person.phone}</p>
