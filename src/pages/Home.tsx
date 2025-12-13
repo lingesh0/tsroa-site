@@ -398,7 +398,7 @@ const Home = () => {
                 />
                 <div className="p-6">
                   <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">ஆகாய கங்கை நீர்வீழ்ச்சி</h4>
-                  <p className="text-gray-600 font-tamil">கொல்லி மலையின் முக்கிய நீர்வீழ்ச்சி - இயற்கை மற்றும் ஆன்மிக தலம்.</p>
+                  <p className="text-gray-600 font-tamil">கொல்லிமலையின் முக்கிய நீர்வீழ்ச்சி - இயற்கை மற்றும் ஆன்மிக தலம்.</p>
                 </div>
               </motion.div>
 
@@ -417,7 +417,7 @@ const Home = () => {
                 />
                 <div className="p-6">
                   <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">பேரியசாமி கோயில் கொல்லிமலை</h4>
-                  <p className="text-gray-600 font-tamil">கொல்லி மலையின் முக்கிய ஆன்மீக மையம் மற்றும் பக்தர்களின் கூட்டம்.</p>
+                  <p className="text-gray-600 font-tamil">கொல்லிமலையின் முக்கிய ஆன்மீக மையம் மற்றும் பக்தர்களின் கூட்டம்.</p>
                 </div>
               </motion.div>
             </div>
