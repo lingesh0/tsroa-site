@@ -30,7 +30,7 @@ const Home = () => {
     script.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம் - நாமக்கல்",
+      "name": "தமிழ் மாநில வருவாய்த்துறை அலுவலர் சங்கம் - நாமக்கல்",
       "alternateName": "TSROA Namakkal",
       "url": "https://www.tsroa.site/",
       "logo": "https://www.tsroa.site/favicon-192.png"
@@ -45,9 +45,9 @@ const Home = () => {
   return (
     <>
       <SEO 
-        title="தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம் | நாமக்கல் மாவட்டம்"
-        description="தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம் நாமக்கல் மாவட்டம் – அரசு ஊழியர்கள் நலன், அறிவிப்புகள், உறுப்பினர் பதிவு மற்றும் நிகழ்வுகள். TSROA Union Namakkal - Official union for government officers in Tamil Nadu revenue department."
-        keywords="தமிழ் மாநில வருவாய்த் துறை, TSROA, TSROA Namakkal, நாமக்கல் அலுவலர் சங்கம், வருவாய் அலுவலர், அரசு ஊழியர்கள், Tamil Nadu Revenue Officers Union, Government Officers Association Namakkal"
+        title="தமிழ் மாநில வருவாய்த்துறை அலுவலர் சங்கம் | நாமக்கல் மாவட்டம்"
+        description="தமிழ் மாநில வருவாய்த்துறை அலுவலர் சங்கம் நாமக்கல் மாவட்டம் – அரசு ஊழியர்கள் நலன், அறிவிப்புகள், உறுப்பினர் பதிவு மற்றும் நிகழ்வுகள். TSROA Union Namakkal - Official union for government officers in Tamil Nadu revenue department."
+        keywords="தமிழ் மாநில வருவாய்த்துறை, TSROA, TSROA Namakkal, நாமக்கல் அலுவலர் சங்கம், வருவாய் அலுவலர், அரசு ஊழியர்கள், Tamil Nadu Revenue Officers Union, Government Officers Association Namakkal"
         url="https://www.tsroa.site/"
       />
       {/* Hero Section with Background Image */}
@@ -176,7 +176,7 @@ const Home = () => {
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              தமிழ்நாடு வருவாய்த் துறை அலுவலர்களின் நலன் மற்றும் உரிமைகளை பாதுகாக்கும் நோக்கில் 
+              தமிழ்நாடு வருவாய்த்துறை அலுவலர்களின் நலன் மற்றும் உரிமைகளை பாதுகாக்கும் நோக்கில் 
               செயல்படும் நாமக்கல் மாவட்ட சங்கத்திற்கு உங்களை அன்புடன் வரவேற்கிறோம்.
             </p>
           </motion.div>
