@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
@@ -21,6 +22,25 @@ const Home = () => {
       transition: { duration: 0.5 },
     },
   };
+
+  // Inject Organization JSON-LD schema for Google branding
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம் - நாமக்கல்",
+      "alternateName": "TSROA Namakkal",
+      "url": "https://www.tsroa.site/",
+      "logo": "https://www.tsroa.site/favicon-192.png"
+    });
+    document.head.appendChild(script);
+    
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   return (
     <>
