@@ -67,7 +67,7 @@ const About = () => {
     { name: 'த.கஸ்தூரி', phone: '79045 14523' }
   ];
 
-  // Additional officers to show as normal cards before the women's wing section
+ 
   const organizingAndPublicitySecretaries = [
     { name: 'ந.வெங்கடேசன்', position: 'மாவட்ட அமைப்புச் செயலாளர்', phone: '94891 66344' },
     { name: 'ப.நவீன்குமார்', position: 'மாவட்ட பிரச்சார செயலாளர்', phone: '74022 16253' }
@@ -291,7 +291,7 @@ const About = () => {
         {/* Women's Wing Section Secretary */}
         <motion.div className="mb-12" variants={fadeInVariants} {...fadeIn}>
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-tamil">
-            மாவட்ட மகளிர் பிரிவு செயலாளர்
+            மாவட்ட மகளிரணி செயலாளர்
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {womenWingSectionSecretary.map((person, index) => (
