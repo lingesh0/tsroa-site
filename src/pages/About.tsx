@@ -58,6 +58,10 @@ const About = () => {
     { name: 'க.கமல்', phone: '97154 50161' }
   ];
 
+  const womenWingSectionSecretary = [
+    { name: 'ம.சந்திரமதி', phone: '96295 62476' }
+  ];
+
   const womenWingJointSecretaries = [
     { name: 'து.சத்தியா', phone: '96294 25910' },
     { name: 'த.கஸ்தூரி', phone: '79045 14523' }
@@ -68,12 +72,11 @@ const About = () => {
   }
 
   const keyOfficeBearers: OfficeBearerWithPhone[] = [
-    { name: 'ரா.சரவணகுமார்', position: 'மாவட்ட தலைவர்', phone: '91596 56661' },
+    { name: 'ரா.சரவணகுமார்', position: 'மாவட்டத்தலைவர்', phone: '91596 56661' },
     { name: 'க.சதீஸ்குமார்', position: 'மாவட்ட செயலாளர்', phone: '97892 33462' },
     { name: 'ச.மனோஜ்', position: 'மாவட்ட பொருளாளர்', phone: '96774 40469' },
     { name: 'ந.வெங்கடேசன்', position: 'மாவட்ட அமைப்புச் செயலாளர்', phone: '94891 66344' },
     { name: 'ப.நவீன்குமார்', position: 'மாவட்ட பிரச்சார செயலாளர்', phone: '74022 16253' },
-    { name: 'ம.சந்திரமதி', position: 'மாவட்ட மகளிர் பிரிவு செயலாளர்', phone: '96295 62476' },
     { name: 'வெ.ராஜேஷ்', position: 'மாநில செயற்குழு உறுப்பினர்', phone: '99523 41265' },
     { name: 'க.பாலசுப்ரமணியம்', position: 'மாநில செயலாளர்', phone: '94423 34677' }
   ];
@@ -242,6 +245,29 @@ const About = () => {
               <motion.div
                 key={index}
                 className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"
+                whileHover={{ scale: 1.05 }}
+              >
+                <p className="text-lg font-semibold text-gray-800 font-tamil">
+                  {person.name}
+                </p>
+                {person.phone && (
+                  <p className="text-sm text-primary font-semibold mt-2">☎ {person.phone}</p>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Women's Wing Section Secretary */}
+        <motion.div className="mb-12" variants={fadeInVariants} {...fadeIn}>
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-tamil">
+            மாவட்ட மகளிர் பிரிவு செயலாளர்
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {womenWingSectionSecretary.map((person, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300 border-l-4 border-pink-500"
                 whileHover={{ scale: 1.05 }}
               >
                 <p className="text-lg font-semibold text-gray-800 font-tamil">
