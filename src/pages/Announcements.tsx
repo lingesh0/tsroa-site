@@ -28,6 +28,8 @@ const driveLinks: Record<string, string> = {
   'REVENUE STANDING ORDER-4 TAMIL.pdf': '1SJhGZTOcg2v5uoUGgUuwawgkT9EjTEmR',
   'vao matirial .pdf': '18X-H_PuhwMtUY4EZxc5lISyHpfsDj1Mx',
   'Vao Notes By Ramki.pdf': '1ddIruH-OBiWo_fyFOCjSCmFp7xtWNELg',
+  'Establishment rules Anna Institute of Management.pdf': '1R0c5OOSTUulLxJWslU6x1Wep5nC-HRPh',
+  'அரசுப்_பணியாளர்களுக்கான_வரைவுகள்_கையேடு_2019.pdf': '1US5ygqJv4khDyKNhRujy-AcimksE2Jo1',
   '531-04122024223214.pdf': '1BSRrOP11c3x-hb0fWjNjH6U9SZmKvtR1',
   'ACE Scanner_2025_01_03.pdf': '1ix9NIiTf0mc2tlp6qhFADi4KrRCQq-7B',
   'agri_t_ms_232_h1_2021.pdf': '1B8qL8NgC2TpeOArBxBUKCSy5WeqKCacZ',
@@ -443,6 +445,82 @@ const Announcements = () => {
                   rel="noopener noreferrer"
                   download
                   className="flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil bg-purple-600 text-white hover:bg-purple-700 cursor-pointer"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  பதிவிறக்கம்
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Establishment Rules - Anna Institute */}
+            <motion.div
+              className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-teal-200"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+            >
+              <div className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-start flex-1">
+                  <div className="flex-shrink-0 mr-4">
+                    <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">📖</span>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2 font-tamil group-hover:text-teal-700 transition-colors">
+                      Establishment Rules - Anna Institute of Management
+                    </h3>
+                    <p className="text-sm text-gray-600 font-tamil mb-2">
+                      நிறுவன விதிமுறைகள் - அண்ணா நிர்வாகக் கழகம்
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href={buildDownloadLink('Establishment rules Anna Institute of Management.pdf')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  className="flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil bg-teal-600 text-white hover:bg-teal-700 cursor-pointer"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  பதிவிறக்கம்
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Government Employees Drafts Manual 2019 */}
+            <motion.div
+              className="bg-gradient-to-br from-rose-50 to-red-50 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-rose-200"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-start flex-1">
+                  <div className="flex-shrink-0 mr-4">
+                    <div className="w-12 h-12 bg-rose-600 rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">📋</span>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2 font-tamil group-hover:text-rose-700 transition-colors">
+                      அரசுப் பணியாளர்களுக்கான வரைவுகள் கையேடு 2019
+                    </h3>
+                    <p className="text-sm text-gray-600 font-tamil mb-2">
+                      அரசு ஊழியர்கள் வரைவு மற்றும் கடிதங்களுக்கான முழுமையான வழிகாட்டி
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href={buildDownloadLink('அரசுப்_பணியாளர்களுக்கான_வரைவுகள்_கையேடு_2019.pdf')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  className="flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil bg-rose-600 text-white hover:bg-rose-700 cursor-pointer"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
