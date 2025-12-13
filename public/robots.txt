@@ -34,5 +34,6 @@ Disallow: /
 Crawl-delay: 1
 Request-rate: 1/2s
 
-# Sitemap locations (plural support)
-Sitemap: https://tsroa-namakkal.vercel.app/sitemap.xml
+# Sitemap locations
+Sitemap: https://tsroa.site/sitemap.xml
+Sitemap: https://tsroa.site/sitemap-index.xml

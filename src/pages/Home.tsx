@@ -25,10 +25,10 @@ const Home = () => {
   return (
     <>
       <SEO 
-        title="முகப்பு"
-        description="தமிழ்நாடு வருவாய்த் துறை அலுவலர்களின் நலன் மற்றும் உரிமைகளை பாதுகாக்கும் நாமக்கல் மாவட்ட சங்கம்"
-        keywords="TSROA, நாமக்கல், வருவாய்த் துறை, அலுவலர் சங்கம், தமிழ் நாடு, அரசு"
-        url="https://tsroa.vercel.app/"
+        title="முகப்பு - TSROA Namakkal"
+        description="TSROA Union Namakkal - Tamil Nadu State Revenue Department Officers Association. Official union for government officers in Namakkal district. Join for member benefits, announcements, books and services. தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம் நாமக்கல்."
+        keywords="TSROA, TSROA Namakkal, தமிழ் மாநில வருவாய்த்துறை, அலுவலர் சங்கம், நாமக்கல் மாவட்டம், Tamil Nadu Revenue, Revenue officers union, government officers association"
+        url="https://tsroa.site/"
       />
       {/* Hero Section with Background Image */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
