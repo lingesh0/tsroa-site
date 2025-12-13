@@ -20,6 +20,9 @@ Crawl-delay: 1
 User-agent: Slurp
 Allow: /
 
+Sitemap: https://www.tsroa.site/sitemap.xml
+Allow: /
+
 User-agent: DuckDuckBot
 Allow: /
 

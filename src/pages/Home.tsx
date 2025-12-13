@@ -25,10 +25,10 @@ const Home = () => {
   return (
     <>
       <SEO 
-        title="முகப்பு - TSROA Namakkal"
-        description="TSROA Union Namakkal - Tamil Nadu State Revenue Department Officers Association. Official union for government officers in Namakkal district. Join for member benefits, announcements, books and services. தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம் நாமக்கல்."
-        keywords="TSROA, TSROA Namakkal, தமிழ் மாநில வருவாய்த்துறை, அலுவலர் சங்கம், நாமக்கல் மாவட்டம், Tamil Nadu Revenue, Revenue officers union, government officers association"
-        url="https://tsroa.site/"
+        title="தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம் | நாமக்கல் மாவட்டம்"
+        description="தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம் நாமக்கல் மாவட்டம் – அரசு ஊழியர்கள் நலன், அறிவிப்புகள், உறுப்பினர் பதிவு மற்றும் நிகழ்வுகள். TSROA Union Namakkal - Official union for government officers in Tamil Nadu revenue department."
+        keywords="தமிழ் மாநில வருவாய்த் துறை, TSROA, TSROA Namakkal, நாமக்கல் அலுவலர் சங்கம், வருவாய் அலுவலர், அரசு ஊழியர்கள், Tamil Nadu Revenue Officers Union, Government Officers Association Namakkal"
+        url="https://www.tsroa.site/"
       />
       {/* Hero Section with Background Image */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -359,7 +359,7 @@ const Home = () => {
                   }}
                 />
                 <div className="p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">கொல்லி மலைகள்</h4>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">கொல்லிமலைகள்</h4>
                   <p className="text-gray-600 font-tamil">70 மலை முடுக்குகளைக் கொண்ட சாலை, ஆகாய கங்கை நீர்வீழ்ச்சி மற்றும் இயற்கை அழகு.</p>
                 </div>
               </motion.div>
@@ -416,7 +416,7 @@ const Home = () => {
                   }}
                 />
                 <div className="p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">பேரியசாமி கோயில் கொல்லிமலை</h4>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 font-tamil">பெரியசாமி கோயில் கொல்லிமலை</h4>
                   <p className="text-gray-600 font-tamil">கொல்லிமலையின் முக்கிய ஆன்மீக மையம் மற்றும் பக்தர்களின் கூட்டம்.</p>
                 </div>
               </motion.div>
