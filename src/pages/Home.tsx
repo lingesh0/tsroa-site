@@ -33,7 +33,7 @@ const Home = () => {
       "name": "தமிழ் மாநில வருவாய்த்துறை அலுவலர் சங்கம் - நாமக்கல்",
       "alternateName": "TSROA Namakkal",
       "url": "https://www.tsroa.site/",
-      "logo": "https://www.tsroa.site/favicon-192.png"
+      "logo": "https://www.tsroa.site/logo-square.png"
     });
     document.head.appendChild(script);
     
