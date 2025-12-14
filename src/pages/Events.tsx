@@ -25,6 +25,28 @@ const Events = () => {
       snapshot.forEach((doc) => {
         eventsData.push({ id: doc.id, ...doc.data() } as Event);
       });
+      // Append static text-only news card for Villupuram CEC meeting (31/10/2020)
+      eventsData.push({
+        id: 'static-villupuram-2020',
+        title: 'மத்திய செயற்குழு – விழுப்புரம்',
+        date: '2020-10-31',
+        description:
+          'திரு.இரா. ரகுநாதன் மாநில துணைத் தலைவர் தலைமையில் 31/10/2020 அன்று விழுப்புரம் மாவட்டத்தில் மத்திய செயற்குழு (CEC) கூட்டம் நடைபெற்றது.'
+      } as Event);
+      eventsData.push({
+        id: 'static-namakkal-protest-2021',
+        title: '20 அம்ச கோரிக்கைகள் – கவன ஈர்ப்பு போராட்டம்',
+        date: '2021-02-09',
+        description:
+          'திரு.இரா. ரகுநாதன் அவர்களின் தலைமையில் 20 அம்ச கோரிக்கைகள் நிறைவேற்ற கோரி மாவட்ட ஆட்சியர் அலுவலகம் முன்பு 09/02/2021 அன்று கவன ஈர்ப்பு போராட்டம் நடத்தப்பட்டது.'
+      } as Event);
+      eventsData.push({
+        id: 'static-district-executive-2025',
+        title: 'மாவட்ட செயற்குழு கூட்டம் – சிறப்பு அழைப்புனர்',
+        date: '2025-09-20',
+        description:
+          '20/09/2025 அன்று திரு.ரா. சரவணகுமார் மாவட்டத்தலைவர் அவர்களின் தலைமையில் மாவட்ட செயற்குழு கூட்டத்தில் சிறப்பு அழைப்புனராக திரு. வி.சுந்தர்ராஜன் மாநில பொதுச்செயலாளர் அவர்கள் கலந்து கொண்டார்.'
+      } as Event);
       setEvents(eventsData);
       setLoading(false);
     });

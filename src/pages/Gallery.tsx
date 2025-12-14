@@ -14,15 +14,23 @@ const Gallery = () => {
   useEffect(() => {
     // Load images from public/images/gallery folder
     const imageFiles = [
-      'WhatsApp Image 2025-09-05 at 07.12.40_f4bb9509.jpg',
-      'WhatsApp Image 2025-09-05 at 07.12.41_6277d1c8.jpg',
-      'WhatsApp Image 2025-09-05 at 20.04.25_9a55874e.jpg',
-      'WhatsApp Image 2025-09-05 at 20.38.53_31c7ff12.jpg'
+      
+      
+      'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg',
+      'WhatsApp Image 2025-12-14 at 07.22.20_1c32bc8e.jpg',
+      'WhatsApp Image 2025-12-14 at 07.46.07_a2210506.jpg'
     ];
 
     const galleryImages = imageFiles.map((fileName) => ({
       url: `/images/gallery/${fileName}`,
-      name: fileName
+      name:
+        fileName === 'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg'
+          ? '31/10/2020 அன்று நடைபெற்ற மத்திய செயற்குழு கூட்டம் விழப்புரம் மாவட்டத்தில் கலந்து கொண்ட போது'
+          : fileName === 'WhatsApp Image 2025-12-14 at 07.22.20_1c32bc8e.jpg'
+          ? 'திரு.இரா. ரகுநாதன் அவர்களின் தலைமையில் 20அம்ச கோரிக்கைகள் நிறைவேற்ற கோரி கவன ஈர்ப்பு போராட்டம் மாவட்ட ஆட்சியர் அலுவலகம் முன்பு 09/02/2021 அன்று நடைபெற்ற போது'
+          : fileName === 'WhatsApp Image 2025-12-14 at 07.46.07_a2210506.jpg'
+          ? 'மாவட்ட செயற்குழு கூட்டம் – 20/09/2025 (சிறப்பு அழைப்புனர்: திரு. வி.சுந்தர்ராஜன்; தலைமையில்: திரு.ரா. சரவணகுமார்)'
+          : fileName
     }));
 
     setImages(galleryImages);
@@ -98,6 +106,12 @@ const Gallery = () => {
                     alt={image.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
+                </div>
+                {/* Caption */}
+                <div className="p-3 bg-white">
+                  <p className="text-sm text-gray-700 font-tamil line-clamp-2">
+                    {image.name}
+                  </p>
                 </div>
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
                   <svg
