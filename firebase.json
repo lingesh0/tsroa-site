@@ -8,18 +8,6 @@
     ],
     "rewrites": [
       {
-        "source": "/api/**",
-        "destination": "/api"
-      },
-      {
-        "source": "!/favicon-*.png",
-        "destination": "/index.html"
-      },
-      {
-        "source": "!/**/*.*",
-        "destination": "/index.html"
-      },
-      {
         "source": "**",
         "destination": "/index.html"
       }
