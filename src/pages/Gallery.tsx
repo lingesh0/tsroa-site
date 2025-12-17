@@ -14,8 +14,8 @@ const Gallery = () => {
   useEffect(() => {
     // Load images from public/images/gallery folder
     const imageFiles = [
-      
-      
+      // New: 12/12/2023 District President election (FIRST)
+      'district-president-saravanakumar-2023-12-12.jpg',
       'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg',
       'WhatsApp Image 2025-12-14 at 07.22.20_1c32bc8e.jpg',
       'WhatsApp Image 2025-12-14 at 07.46.07_a2210506.jpg',
@@ -26,7 +26,9 @@ const Gallery = () => {
     const galleryImages = imageFiles.map((fileName) => ({
       url: `/images/gallery/${fileName}`,
       name:
-        fileName === 'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg'
+        fileName === 'district-president-saravanakumar-2023-12-12.jpg'
+          ? 'மாநில துணைத்தலைவர் திரு.இரா. ரகுநாதன் அவர்களால் மாவட்டத்தலைவராக ரா. சரவணகுமார் அவர்கள் 12/12/23 அன்று தேர்த்தெடுக்கப்பட்டார்'
+          : fileName === 'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg'
           ? '31/10/2020 அன்று நடைபெற்ற மத்திய செயற்குழு கூட்டம் விழப்புரம் மாவட்டத்தில் கலந்து கொண்ட போது'
           : fileName === 'WhatsApp Image 2025-12-14 at 07.22.20_1c32bc8e.jpg'
           ? 'திரு.இரா. ரகுநாதன் அவர்களின் தலைமையில் 20அம்ச கோரிக்கைகள் நிறைவேற்ற கோரி கவன ஈர்ப்பு போராட்டம் மாவட்ட ஆட்சியர் அலுவலகம் முன்பு 09/02/2021 அன்று நடைபெற்ற போது'

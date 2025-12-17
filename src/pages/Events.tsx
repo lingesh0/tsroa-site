@@ -25,6 +25,14 @@ const Events = () => {
       snapshot.forEach((doc) => {
         eventsData.push({ id: doc.id, ...doc.data() } as Event);
       });
+      // Insert district president election as FIRST event
+      eventsData.unshift({
+        id: 'static-president-election-2023',
+        title: 'மாவட்டத்தலைவர் தேர்வு',
+        date: '2023-12-12',
+        description:
+          'மாநில துணைத்தலைவர் திரு.இரா. ரகுநாதன் அவர்களால் மாவட்டத்தலைவராக திரு.ரா. சரவணகுமார் அவர்கள் 12/12/2023 அன்று தேர்த்தெடுக்கப்பட்டார்.'
+      } as Event);
       // Append static text-only news card for Villupuram CEC meeting (31/10/2020)
       eventsData.push({
         id: 'static-villupuram-2020',

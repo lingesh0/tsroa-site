@@ -145,6 +145,70 @@ const About = () => {
           </div>
         </motion.div>
 
+        {/* Leadership Section */}
+        <motion.div
+          className="mb-12"
+          variants={fadeInVariants}
+          {...fadeIn}
+        >
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-tamil">
+            தலைமை
+          </h2>
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+              {/* State Vice President */}
+              <motion.div
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                variants={fadeInVariants}
+              >
+                <div className="aspect-[3/4] overflow-hidden bg-gray-100">
+                  <img
+                    src="/images/leadership/state-vice-president-ragunathan.jpg"
+                    alt="மாநில துணைத்தலைவர் திரு.இரா. ரகுநாதன்"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-4 bg-gradient-to-br from-blue-50 to-white">
+                  <h3 className="text-lg font-bold text-primary mb-1 font-tamil">
+                    திரு.இரா. ரகுநாதன்
+                  </h3>
+                  <p className="text-sm text-gray-700 font-semibold font-tamil">
+                    மாநில துணைத்தலைவர்
+                  </p>
+                  <p className="text-xs text-gray-600 font-tamil mt-1">
+                    TSROA
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* District President */}
+              <motion.div
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                variants={fadeInVariants}
+              >
+                <div className="aspect-[3/4] overflow-hidden bg-gray-100">
+                  <img
+                    src="/images/leadership/district-president-saravanakumar.jpg"
+                    alt="மாவட்டத்தலைவர் ரா. சரவணகுமார்"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-4 bg-gradient-to-br from-blue-50 to-white">
+                  <h3 className="text-lg font-bold text-primary mb-1 font-tamil">
+                    ரா. சரவணகுமார்
+                  </h3>
+                  <p className="text-sm text-gray-700 font-semibold font-tamil">
+                    மாவட்டத்தலைவர்
+                  </p>
+                  <p className="text-xs text-gray-600 font-tamil mt-1">
+                    நாமக்கல் மாவட்டம்
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Key Office Bearers */}
         <motion.div className="mb-12" variants={fadeInVariants} {...fadeIn}>
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-tamil">
