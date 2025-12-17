@@ -3,7 +3,9 @@ import { useState } from 'react';
 
 const Contact = () => {
   const [showPdfModal, setShowPdfModal] = useState(false);
-  const pdfPath = '/documents/contacts/Namakkal Dist Telphone Directory  - 2024..pdf';
+  const googleDriveFileId = '1sLLhzlQfhIlPKZkZA78JLRFU-NT-GjRE';
+  const pdfDownloadUrl = `https://drive.google.com/uc?export=download&id=${googleDriveFileId}`;
+  const pdfPreviewUrl = `https://drive.google.com/file/d/${googleDriveFileId}/preview`;
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -289,8 +291,9 @@ const Contact = () => {
             <div className="mt-6 text-center space-y-3">
               <div className="flex flex-col sm:flex-row gap-3 justify-center flex-wrap">
                 <a
-                  href={pdfPath}
-                  download
+                  href={pdfDownloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -342,29 +345,25 @@ const Contact = () => {
               </div>
 
               {/* PDF Viewer */}
-              <div className="flex-1 overflow-hidden bg-gray-100 flex flex-col items-center justify-center">
-                <embed
-                  src={pdfPath}
-                  type="application/pdf"
-                  className="w-full h-full"
+              <div className="flex-1 overflow-hidden">
+                <iframe
+                  src={pdfPreviewUrl}
+                  className="w-full h-full border-0"
                   title="Namakkal District Telephone Directory 2024"
+                  allow="autoplay"
                 />
-                <div className="absolute inset-0 pointer-events-none flex items-center justify-center bg-gradient-to-b from-transparent to-gray-100/50 hidden">
-                  <p className="text-gray-500 font-tamil text-center">
-                    PDF இல்லை என்றால் பதிவிறக்க பொத்தானைக் கிளிக் செய்யவும்
-                  </p>
-                </div>
               </div>
 
               {/* Download Button */}
               <div className="p-4 border-t border-gray-200 bg-gray-50 rounded-b-xl flex gap-3">
                 <a
-                  href={pdfPath}
-                  download
+                  href={pdfDownloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
                   <span className="font-tamil">PDF பதிவிறக்கம்</span>
                 </a>
