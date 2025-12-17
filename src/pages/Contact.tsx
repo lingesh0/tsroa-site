@@ -286,19 +286,31 @@ const Contact = () => {
               </table>
             </div>
 
-            <div className="mt-6 text-center">
-              <button
-                onClick={() => setShowPdfModal(true)}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
-                <span className="font-tamil">முழு தொலைபேசி அடைவை பார்க்க (PDF)</span>
-              </button>
-              <p className="text-xs text-gray-500 mt-4 font-tamil">
-                மேலும் விவரங்களுக்கு (தாசில்தார், BDO மற்றும் பிற அதிகாரிகள்) PDF ஐ பார்க்கவும்
+            <div className="mt-6 text-center space-y-3">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center flex-wrap">
+                <a
+                  href={pdfPath}
+                  download
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span className="font-tamil">PDF பதிவிறக்கம் செய்யவும்</span>
+                </a>
+                <button
+                  onClick={() => setShowPdfModal(true)}
+                  className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  <span className="font-tamil">Preview பார்க்க</span>
+                </button>
+              </div>
+              <p className="text-xs text-gray-500 font-tamil">
+                மேலும் விவரங்களுக்கு (தாசில்தார், BDO மற்றும் பிற அதிகாரிகள்) PDF ஐ பதிவிறக்க செய்யவும்
               </p>
             </div>
           </div>
@@ -330,15 +342,18 @@ const Contact = () => {
               </div>
 
               {/* PDF Viewer */}
-              <div className="flex-1 overflow-hidden bg-gray-100">
-                <iframe
+              <div className="flex-1 overflow-hidden bg-gray-100 flex flex-col items-center justify-center">
+                <embed
                   src={pdfPath}
+                  type="application/pdf"
                   className="w-full h-full"
                   title="Namakkal District Telephone Directory 2024"
-                  onError={(e) => {
-                    console.error('PDF failed to load:', e);
-                  }}
                 />
+                <div className="absolute inset-0 pointer-events-none flex items-center justify-center bg-gradient-to-b from-transparent to-gray-100/50 hidden">
+                  <p className="text-gray-500 font-tamil text-center">
+                    PDF இல்லை என்றால் பதிவிறக்க பொத்தானைக் கிளிக் செய்யவும்
+                  </p>
+                </div>
               </div>
 
               {/* Download Button */}
