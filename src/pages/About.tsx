@@ -117,7 +117,7 @@ const About = () => {
             </div>
             <div className="text-center md:text-left">
               <h2 className="text-3xl font-bold text-gray-800 mb-3 font-tamil">
-                தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம்
+                தமிழ் மாநில வருவாய்த்துறை அலுவலர் சங்கம்
               </h2>
               <p className="text-xl text-primary font-semibold font-tamil">
                 நாமக்கல் மாவட்டம்
@@ -138,7 +138,7 @@ const About = () => {
 
           <div className="mt-8 p-6 bg-blue-50 rounded-xl">
             <p className="text-gray-700 font-tamil text-lg leading-relaxed">
-              நாமக்கல் மாவட்ட வருவாய்த் துறை அலுவலர்களின் நலன் மற்றும் உரிமைகளைப் பாதுகாக்கவும், 
+              நாமக்கல் மாவட்ட வருவாய்த்துறை அலுவலர்களின் நலன் மற்றும் உரிமைகளைப் பாதுகாக்கவும், 
               தொழில்சார் வளர்ச்சியை ஊக்குவிக்கவும், உறுப்பினர்களிடையே ஒற்றுமை மற்றும் ஒத்துழைப்பை 
               வளர்ப்பதற்காக இந்த சங்கம் அர்ப்பணிப்புடன் செயல்படுகிறது.
             </p>

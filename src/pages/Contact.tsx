@@ -102,7 +102,7 @@ const Contact = () => {
                   </h3>
                   <p className="text-gray-700 font-tamil text-sm sm:text-base">
                     <span className="font-semibold">பதிவு எண்:</span> 5/2016<br />
-                    <span className="font-semibold">அமைப்பு:</span> தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கம்
+                    <span className="font-semibold">அமைப்பு:</span> தமிழ் மாநில வருவாய்ததுறை அலுவலர் சங்கம்
                   </p>
                 </div>
               </div>

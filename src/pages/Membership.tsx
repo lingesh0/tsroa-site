@@ -115,7 +115,7 @@ const Membership = () => {
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
           <p className="text-gray-600 font-tamil text-lg">
-            தமிழ் மாநில வருவாய்த் துறை அலுவலர் சங்கத்தில் சேர விண்ணப்பிக்கவும்
+            தமிழ் மாநில வருவாய்ததுறை அலுவலர் சங்கத்தில் சேர விண்ணப்பிக்கவும்
           </p>
         </motion.div>
 
