@@ -113,7 +113,7 @@ const Gallery = () => {
                 </div>
                 {/* Caption */}
                 <div className="p-3 bg-white">
-                  <p className="text-sm text-gray-700 font-tamil line-clamp-2">
+                  <p className="text-sm text-gray-700 font-tamil break-words">
                     {image.name}
                   </p>
                 </div>
