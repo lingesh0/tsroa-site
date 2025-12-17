@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 const Contact = () => {
   const [showPdfModal, setShowPdfModal] = useState(false);
+  const pdfPath = '/documents/contacts/Namakkal Dist Telphone Directory  - 2024..pdf';
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -329,18 +330,21 @@ const Contact = () => {
               </div>
 
               {/* PDF Viewer */}
-              <div className="flex-1 overflow-hidden">
+              <div className="flex-1 overflow-hidden bg-gray-100">
                 <iframe
-                  src="/documents/contacts/Namakkal Dist Telphone Directory  - 2024..pdf"
+                  src={pdfPath}
                   className="w-full h-full"
                   title="Namakkal District Telephone Directory 2024"
+                  onError={(e) => {
+                    console.error('PDF failed to load:', e);
+                  }}
                 />
               </div>
 
               {/* Download Button */}
-              <div className="p-4 border-t border-gray-200 bg-gray-50 rounded-b-xl">
+              <div className="p-4 border-t border-gray-200 bg-gray-50 rounded-b-xl flex gap-3">
                 <a
-                  href="/documents/contacts/Namakkal Dist Telphone Directory  - 2024..pdf"
+                  href={pdfPath}
                   download
                   className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
                 >
@@ -349,6 +353,12 @@ const Contact = () => {
                   </svg>
                   <span className="font-tamil">PDF பதிவிறக்கம்</span>
                 </a>
+                <button
+                  onClick={() => setShowPdfModal(false)}
+                  className="inline-flex items-center gap-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
+                >
+                  <span className="font-tamil">மூடு</span>
+                </button>
               </div>
             </motion.div>
           </div>
