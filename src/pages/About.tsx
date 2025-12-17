@@ -164,7 +164,7 @@ const About = () => {
                 <div className="aspect-[3/4] overflow-hidden bg-gray-100">
                   <img
                     src="/images/leadership/state-vice-president-ragunathan.jpg"
-                    alt="மாநில துணைத்தலைவர் திரு.இரா. ரகுநாதன்"
+                    alt="முன்னாள் மாநில துணைத்தலைவர் திரு.இரா. ரகுநாதன்"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -173,7 +173,7 @@ const About = () => {
                     திரு.இரா. ரகுநாதன்
                   </h3>
                   <p className="text-sm text-gray-700 font-semibold font-tamil">
-                    மாநில துணைத்தலைவர்
+                    முன்னாள் மாநில துணைத்தலைவர்
                   </p>
                   <p className="text-xs text-gray-600 font-tamil mt-1">
                     TSROA
