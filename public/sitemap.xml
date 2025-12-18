@@ -55,24 +55,5 @@
     <priority>0.85</priority>
     <mobile:mobile/>
   </url>
-  <url>
-    <loc>https://tsroa.vercel.app/membership</loc>
-    <lastmod>2025-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://tsroa.vercel.app/login</loc>
-    <lastmod>2025-12-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <!-- Company Backlink for SEO -->
-  <url>
-    <loc>https://xevetech.vercel.app/</loc>
-    <lastmod>2025-12-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <!-- Keep sitemap canonical to https://www.tsroa.site to avoid duplicate domains -->
 </urlset>
