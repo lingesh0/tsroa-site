@@ -12,27 +12,27 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
-    // Load images from public/images/gallery folder (newest first)
+    // Load images from public/images/gallery folder (oldest to newest, with District President election first)
     const imageFiles = [
-      // 24/12/2025 - Calendar distribution events
-      'calendar-paramathi-velur-2025-12-24.jpg',
-      'calendar-tiruchengode-2025-12-24.jpg',
-      // 23/12/2025 - Calendar distribution events
-      'calendar-namakkal-rdo-2025-12-23.jpg',
-      'calendar-kumarapalayam-2025-12-23.jpg',
-      // 22/12/2025 - Calendar distribution and DRO meeting
-      'dro-meeting-2025-12-22.jpg',
-      'calendar-distribution-2025-12-22.jpg',
-      // 20/09/2025 - District Executive Committee meeting
-      'WhatsApp Image 2025-12-14 at 07.46.07_a2210506.jpg',
-      // 27/07/2025 - District Collector greeting
-      'collector-namakkal-2025-07-27.jpg',
-      // 12/12/2023 - District President election
+      // 12/12/2023 - District President election (KEEP FIRST)
       'district-president-saravanakumar-2023-12-12.jpg',
+      // 31/10/2020 - CEC meeting at Villupuram
+      'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg',
       // 09/02/2021 - Protest for 20 demands
       'WhatsApp Image 2025-12-14 at 07.22.20_1c32bc8e.jpg',
-      // 31/10/2020 - CEC meeting at Villupuram
-      'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg'
+      // 27/07/2025 - District Collector greeting
+      'collector-namakkal-2025-07-27.jpg',
+      // 20/09/2025 - District Executive Committee meeting
+      'WhatsApp Image 2025-12-14 at 07.46.07_a2210506.jpg',
+      // 22/12/2025 - Calendar distribution and DRO meeting
+      'calendar-distribution-2025-12-22.jpg',
+      'dro-meeting-2025-12-22.jpg',
+      // 23/12/2025 - Calendar distribution events
+      'calendar-kumarapalayam-2025-12-23.jpg',
+      'calendar-namakkal-rdo-2025-12-23.jpg',
+      // 24/12/2025 - Calendar distribution events
+      'calendar-tiruchengode-2025-12-24.jpg',
+      'calendar-paramathi-velur-2025-12-24.jpg'
     ];
 
     const galleryImages = imageFiles.map((fileName) => ({
