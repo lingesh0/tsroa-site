@@ -20,7 +20,9 @@ const Gallery = () => {
       'WhatsApp Image 2025-12-14 at 07.22.20_1c32bc8e.jpg',
       'WhatsApp Image 2025-12-14 at 07.46.07_a2210506.jpg',
       // New: 27/07/2025 District Collector oath greeting
-      'collector-namakkal-2025-07-27.jpg'
+      'collector-namakkal-2025-07-27.jpg',
+      // New: 22/12/2025 Calendar distribution for 2026
+      'calendar-distribution-2025-12-22.jpg'
     ];
 
     const galleryImages = imageFiles.map((fileName) => ({
@@ -36,6 +38,8 @@ const Gallery = () => {
           ? 'மாவட்ட செயற்குழு கூட்டம் – 20/09/2025 (சிறப்பு அழைப்புனர்: திரு. வி.சுந்தர்ராஜன்; தலைமையில்: திரு.ரா. சரவணகுமார்)'
               : fileName === 'collector-namakkal-2025-07-27.jpg'
               ? '27/07/2025 நாமக்கல் மாவட்ட ஆட்சியராக திருமதி. துர்காமூர்த்தி அவர்கள் பதவியேற்பின் போது – TSROA சங்கம் சார்பாக நேரில் வாழ்த்துக்கள்'
+              : fileName === 'calendar-distribution-2025-12-22.jpg'
+              ? '22/12/2025 அன்று 2026ம் ஆண்டிற்கான மாத நாட்காட்டி மாவட்டத்தலைவர் திரு.ரா.சரவணகுமார் அவர்களின் தலைமையில் மாநில செயற்குழு உறுப்பினர் திரு.வெ.ராஜேஷ் மற்றும் மாவட்ட செயலாளர் திரு.க.சதீஸ்குமார், மாவட்ட பொருளாளர் திரு.ச.மனோஜ், மாவட்ட துணைத்தலைவர் திரு.கிருஷ்ணமூர்த்தி மற்றும் திரு.அ.அம்ஜத், திரு.மா.தணிகாசலம், திரு.மா.முருகபெருமாள், செல்வி.சோ.கவுசிகா, மாவட்ட இணைச்செயலாளர் திரு.ச.ரஞ்சித், திரு.சு.நடராஜன், திரு.நா.வெங்கடேன், மாவட்ட மகளிர் அணி செயலாளர் திருமதி.ம.சந்திரமதி மற்றும் திருமதி.வே.சித்ரா ஆகியோருடன் மாவட்ட ஆட்சியர் அலுவலகத்தில் உள்ள நமது சங்க உறுப்பினர்கள் அனைவருக்கும் வழங்கப்பட்டது'
           : fileName
     }));
 
@@ -96,43 +100,81 @@ const Gallery = () => {
             </p>
           </motion.div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {images.map((image, index) => (
               <motion.div
                 key={image.name}
-                className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                onClick={() => setSelectedImage(image.url)}
+                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="aspect-square overflow-hidden">
+                {/* Image Container */}
+                <div 
+                  className="relative h-72 overflow-hidden cursor-pointer group"
+                  onClick={() => setSelectedImage(image.url)}
+                >
                   <img
                     src={image.url}
                     alt={image.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
                   />
+                  {/* Overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="text-center">
+                      <svg
+                        className="w-16 h-16 text-white mx-auto mb-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                      <p className="text-white font-tamil text-sm font-semibold">பெரிதாக பார்க்க கிளிக் செய்யவும்</p>
+                    </div>
+                  </div>
+                  {/* Gallery Icon Badge */}
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
+                    <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                    </svg>
+                  </div>
                 </div>
-                {/* Caption */}
-                <div className="p-3 bg-white">
-                  <p className="text-sm text-gray-700 font-tamil break-words">
+
+                {/* Content Container */}
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="h-1 w-12 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wide">நிகழ்வு</span>
+                  </div>
+                  
+                  <p className="text-gray-700 font-tamil leading-relaxed text-[15px] flex-1">
                     {image.name}
                   </p>
-                </div>
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
-                  <svg
-                    className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+
+                  {/* Action Button */}
+                  <button
+                    onClick={() => setSelectedImage(image.url)}
+                    className="mt-4 w-full py-3 px-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-tamil font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                    />
-                  </svg>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    படத்தை பார்க்கவும்
+                  </button>
                 </div>
               </motion.div>
             ))}
@@ -143,39 +185,68 @@ const Gallery = () => {
         <AnimatePresence>
           {selectedImage && (
             <motion.div
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4"
+              className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedImage(null)}
             >
-              <button
-                className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
-                onClick={() => setSelectedImage(null)}
-              >
-                <svg
-                  className="w-10 h-10"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-              <motion.img
-                src={selectedImage}
-                alt="Enlarged view"
-                className="max-w-full max-h-full object-contain"
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.8 }}
-                onClick={(e) => e.stopPropagation()}
-              />
+              <div className="h-full w-full flex flex-col">
+                {/* Header with close button */}
+                <div className="flex justify-between items-center p-6">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-white/10 backdrop-blur-md rounded-lg p-2">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <span className="text-white font-tamil text-lg font-semibold">படத்தொகுப்பு காட்சி</span>
+                  </div>
+                  <button
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 hover:rotate-90"
+                    onClick={() => setSelectedImage(null)}
+                  >
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Image container */}
+                <div className="flex-1 flex items-center justify-center p-4">
+                  <motion.div
+                    className="relative max-w-6xl w-full"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.9, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <img
+                      src={selectedImage}
+                      alt="Enlarged view"
+                      className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
+                    />
+                  </motion.div>
+                </div>
+
+                {/* Footer with hint */}
+                <div className="p-4 text-center">
+                  <p className="text-white/70 font-tamil text-sm">
+                    படத்தை மூட வெளியே கிளிக் செய்யவும் அல்லது ESC அழுத்தவும்
+                  </p>
+                </div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
