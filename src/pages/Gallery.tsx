@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface GalleryImage {
   url: string;
   name: string;
+  location: string;
 }
 
 const Gallery = () => {
@@ -42,11 +43,40 @@ const Gallery = () => {
       'WhatsApp Image 2025-12-26 at 4.47.11 PM.jpeg'
     ];
 
-    const galleryImages = imageFiles.map((fileName) => ({
-      url: `/images/gallery/${fileName}`,
-      name:
-        fileName === 'district-president-saravanakumar-2023-12-12.jpg'
-          ? 'முன்னாள் மாநில துணைத்தலைவர் திரு.இரா. ரகுநாதன் அவர்களால் மாவட்டத்தலைவராக ரா. சரவணகுமார் அவர்கள் 12/12/23 அன்று தேர்த்தெடுக்கப்பட்டார்'
+    const galleryImages = imageFiles.map((fileName) => {
+      let location = 'நாமக்கல்'; // Default location
+      
+      // Extract location from descriptions
+      if (fileName === 'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg') {
+        location = 'விழுப்புரம் மாவட்டம்';
+      } else if (fileName === 'WhatsApp Image 2025-12-14 at 07.22.20_1c32bc8e.jpg' || 
+                 fileName === 'calendar-distribution-2025-12-22.jpg' ||
+                 fileName === 'calendar-collage-district-office-2025-12-22.jpg' ||
+                 fileName === 'collector-namakkal-2025-07-27.jpg' ||
+                 fileName === 'dro-meeting-2025-12-22.jpg') {
+        location = 'மாவட்ட ஆட்சியர் அலுவலகம், நாமக்கல்';
+      } else if (fileName === 'calendar-kumarapalayam-2025-12-23.jpg' || 
+                 fileName === 'calendar-collage-kumarapalayam-2025-12-23.jpg') {
+        location = 'குமாரபாளையம் வட்டாட்சியர் அலுவலகம்';
+      } else if (fileName === 'calendar-namakkal-rdo-2025-12-23.jpg') {
+        location = 'நாமக்கல் வருவாய் கோட்டாட்சியர் அலுவலகம்';
+      } else if (fileName === 'calendar-tiruchengode-2025-12-24.jpg' || 
+                 fileName === 'calendar-collage-tiruchengode-2025-12-24.jpg') {
+        location = 'திருச்செங்கோடு வருவாய் கோட்டாட்சியர் & வட்டாட்சியர் அலுவலகம்';
+      } else if (fileName === 'calendar-paramathi-velur-2025-12-24.jpg') {
+        location = 'பரமத்தி வேலூர் வட்டாட்சியர் அலுவலகம்';
+      } else if (fileName === 'WhatsApp Image 2025-12-26 at 4.25.19 PM.jpeg') {
+        location = 'நாமக்கல் வட்டாட்சியர் அலுவலகம்';
+      } else if (fileName === 'WhatsApp Image 2025-12-26 at 4.47.11 PM.jpeg') {
+        location = 'திருச்செங்கோடு வட்டாட்சியர் அலுவலகம்';
+      }
+      
+      return {
+        url: `/images/gallery/${fileName}`,
+        location,
+        name:
+          fileName === 'district-president-saravanakumar-2023-12-12.jpg'
+            ? 'முன்னாள் மாநில துணைத்தலைவர் திரு.இரா. ரகுநாதன் அவர்களால் மாவட்டத்தலைவராக ரா. சரவணகுமார் அவர்கள் 12/12/23 அன்று தேர்த்தெடுக்கப்பட்டார்'
           : fileName === 'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg'
           ? '31/10/2020 அன்று நடைபெற்ற மத்திய செயற்குழு கூட்டம் விழப்புரம் மாவட்டத்தில் கலந்து கொண்ட போது'
           : fileName === 'WhatsApp Image 2025-12-14 at 07.22.20_1c32bc8e.jpg'
@@ -77,8 +107,9 @@ const Gallery = () => {
               ? '26/12/2025 அன்று 2026ம் புத்தாண்டிற்கான மாத நாட்காட்டி மாவட்டத்துணைத்தலைவர் திரு.வடிவேலு மற்றும் திரு.பன்னீர்செல்வம், மாவட்ட இணைச்செயலாளர் திரு.ரஞ்சித் மற்றும் திருமதி.மணிமேகலை ஆகியோருடன் நாமக்கல் வட்டாட்சியர் அலுவலகத்தில் உள்ள நமது சங்க உறுப்பினர்கள் அனைவருக்கும் வழங்கப்பட்டது'
               : fileName === 'WhatsApp Image 2025-12-26 at 4.47.11 PM.jpeg'
               ? '26/12/2025 அன்று 2026ம் மாதநாட்காட்டி மாவட்டத்துணைத்தலைவர் திரு.தணிகாசலம் மற்றும் மாவட்ட இணைச்செயலாளர் திரு.கமல், அமுல்ராஜ் மற்றும் நடராஜன் ஆகியோர் தலைமையில் திருச்செங்கோடு வட்டாட்சியர் அலுவலகத்தில் சங்க நாட்காட்டி அனைவருக்கும் வழங்கப்பட்டது'
-          : fileName
-    }));
+            : fileName
+      };
+    });
 
     setImages(galleryImages);
     setLoading(false);
@@ -201,10 +232,18 @@ const Gallery = () => {
                     {image.name}
                   </p>
 
+                  {/* Location */}
+                  <div className="flex items-start gap-2 mt-4 mb-4 text-gray-600">
+                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm font-tamil leading-relaxed">{image.location}</span>
+                  </div>
+
                   {/* Action Button */}
                   <button
                     onClick={() => setSelectedImage(image.url)}
-                    className="mt-4 w-full py-3 px-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-tamil font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+                    className="mt-2 w-full py-3 px-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-tamil font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
