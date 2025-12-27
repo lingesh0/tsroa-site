@@ -41,7 +41,8 @@ const driveLinks: Record<string, string> = {
   'IT on encashment of UEL on private affairs clarification.pdf': '1d5eebZeG5KES9ZaYG1o6G1h843rlmh85',
   'kalvettu 2.pdf': '1ZoP3kQaOkdWbH6zk497zCLouf0bD_BDW',
   'LA - Arbitration post.pdf': '1ZoP3kQaOkdWbH6zk497zCLouf0bD_BDW',
-  'Vigilance Awareness Week Pledge_251026_213258.pdf': '1ZxWh5cRUHDjv2_PY3djAGQ02S0WAIq5o'
+  'Vigilance Awareness Week Pledge_251026_213258.pdf': '1ZxWh5cRUHDjv2_PY3djAGQ02S0WAIq5o',
+  'New Book.pdf': '1rGM_T4Fnmx3GB3-7PMqiEv6_e9LLlu6l'
 };
 
 const buildDownloadLink = (fileName: string) => {
@@ -521,6 +522,44 @@ const Announcements = () => {
                   rel="noopener noreferrer"
                   download
                   className="flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil bg-rose-600 text-white hover:bg-rose-700 cursor-pointer"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  பதிவிறக்கம்
+                </a>
+              </div>
+            </motion.div>
+
+            {/* New Book */}
+            <motion.div
+              className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-yellow-200"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+            >
+              <div className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-start flex-1">
+                  <div className="flex-shrink-0 mr-4">
+                    <div className="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">📘</span>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2 font-tamil group-hover:text-yellow-700 transition-colors">
+                      புதிய புத்தகம்
+                    </h3>
+                    <p className="text-sm text-gray-600 font-tamil mb-2">
+                      வருவாய்த்துறை தேர்வுக்கான புதிய வழிகாட்டி
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href={buildDownloadLink('New Book.pdf')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  className="flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 font-tamil bg-yellow-600 text-white hover:bg-yellow-700 cursor-pointer"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
