@@ -4,17 +4,14 @@ import { compression } from 'vite-plugin-compression2'
 
 export default defineConfig({
   plugins: [
-    react({
-      // Enable fast refresh for better development experience
-      fastRefresh: true,
-    }),
+    react(),
     // Add gzip compression for production builds
     compression({
-      algorithm: 'gzip',
+      algorithms: ['gzip'],
       exclude: [/\.(br)$/, /\.(gz)$/],
     }),
     compression({
-      algorithm: 'brotliCompress',
+      algorithms: ['brotli'],
       exclude: [/\.(br)$/, /\.(gz)$/],
     })
   ],
