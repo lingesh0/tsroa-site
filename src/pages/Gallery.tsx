@@ -27,19 +27,9 @@ const Gallery = () => {
       'WhatsApp Image 2025-12-14 at 07.46.07_a2210506.jpg',
       // 22/12/2025 - Calendar distribution and DRO meeting
       'calendar-distribution-2025-12-22.jpg',
-      'calendar-collage-district-office-2025-12-22.jpg',
       'dro-meeting-2025-12-22.jpg',
       // 23/12/2025 - Calendar distribution events
       'calendar-namakkal-rdo-2025-12-23.jpg',
-      'WhatsApp Image 2025-12-26 at 10.14.05 PM.jpeg',
-      // 24/12/2025 - Calendar distribution events
-      'calendar-tiruchengode-2025-12-24.jpg',
-      'calendar-collage-tiruchengode-2025-12-24.jpg',
-      'calendar-paramathi-velur-2025-12-24.jpg',
-      // 26/12/2025 - Calendar distribution at Namakkal Tahsildar office
-      'WhatsApp Image 2025-12-26 at 4.25.19 PM.jpeg',
-      // 26/12/2025 - Calendar distribution at Tiruchengode Tahsildar office
-      'WhatsApp Image 2025-12-26 at 4.47.11 PM.jpeg',
       // 26/12/2025 - Meeting with District Collector about protests
       'WhatsApp Image 2025-12-26 at 8.22.36 PM.jpeg',
       // 29/12/2025 - New Year greeting to District Collector and District Revenue Officer
@@ -252,24 +242,12 @@ const Gallery = () => {
                   </p>
 
                   {/* Location */}
-                  <div className="flex items-start gap-2 mt-4 mb-4 text-gray-600">
+                  <div className="flex items-start gap-2 mt-4 text-gray-600">
                     <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                     </svg>
                     <span className="text-sm font-tamil leading-relaxed">{image.location}</span>
                   </div>
-
-                  {/* Action Button */}
-                  <button
-                    onClick={() => setSelectedImage(image.url)}
-                    className="mt-2 w-full py-3 px-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-tamil font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                    படத்தை பார்க்கவும்
-                  </button>
                 </div>
               </motion.div>
             ))}
