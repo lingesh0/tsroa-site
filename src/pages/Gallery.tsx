@@ -13,7 +13,7 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
-    // Load images from public/images/gallery folder (oldest to newest, with District President election first)
+    // Load images from public/images/gallery folder (District President election first, then others sorted by date - oldest to newest)
     const imageFiles = [
       // 12/12/2023 - District President election (KEEP FIRST)
       'district-president-saravanakumar-2023-12-12.jpg',
@@ -21,6 +21,8 @@ const Gallery = () => {
       'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg',
       // 09/02/2021 - Protest for 20 demands
       'WhatsApp Image 2025-12-14 at 07.22.20_1c32bc8e.jpg',
+      // 27/07/2025 - Meeting with new District Collector
+      'WhatsApp Image 2026-01-04 at 2.09.46 PM.jpeg',
       // 20/09/2025 - District Executive Committee meeting
       'WhatsApp Image 2025-12-14 at 07.46.07_a2210506.jpg',
       // 22/12/2025 - DRO meeting
@@ -30,9 +32,7 @@ const Gallery = () => {
       // 29/12/2025 - New Year greeting to District Collector and District Revenue Officer
       'new-year-greeting-collector-2025-12-29.jpeg',
       // 29/12/2025 - New Year greeting formal announcement
-      'WhatsApp Image 2025-12-30 at 10.55.44 PM.jpeg',
-      // 04/01/2026 - Meeting with new District Collector
-      'WhatsApp Image 2026-01-04 at 2.09.46 PM.jpeg'
+      'WhatsApp Image 2025-12-30 at 10.55.44 PM.jpeg'
     ];
 
     const galleryImages = imageFiles.map((fileName) => {
