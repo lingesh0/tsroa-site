@@ -42,7 +42,8 @@ const driveLinks: Record<string, string> = {
   'kalvettu 2.pdf': '1ZoP3kQaOkdWbH6zk497zCLouf0bD_BDW',
   'LA - Arbitration post.pdf': '1ZoP3kQaOkdWbH6zk497zCLouf0bD_BDW',
   'Vigilance Awareness Week Pledge_251026_213258.pdf': '1ZxWh5cRUHDjv2_PY3djAGQ02S0WAIq5o',
-  'New Book.pdf': '1rGM_T4Fnmx3GB3-7PMqiEv6_e9LLlu6l'
+  'New Book.pdf': '1rGM_T4Fnmx3GB3-7PMqiEv6_e9LLlu6l',
+  'GEO Document.pdf': '1VpsELaltbky2R6Muy2H79LoY2wcnF_iA'
 };
 
 const buildDownloadLink = (fileName: string) => {
@@ -92,7 +93,8 @@ const Announcements = () => {
     { name: 'ஆவண ஸ்கேனர் 08 செப் 2025 - 14:20', fileName: 'new/DocScanner 08-Sept-2025 14-20.pdf', date: '2025-09-08', category: 'ஆவணம்' },
     { name: 'ஆவண ஸ்கேனர் 08 செப் 2025 - 14:22', fileName: 'new/DocScanner 08-Sept-2025 14-22.pdf', date: '2025-09-08', category: 'ஆவணம்' },
     { name: 'ஆவண ஸ்கேனர் 08 செப் 2025 - 14:27', fileName: 'new/DocScanner 08-Sept-2025 14-27.pdf', date: '2025-09-08', category: 'ஆவணம்' },
-    { name: 'ஆவண ஸ்கேனர் 08 செப் 2025 - 14:29', fileName: 'new/DocScanner 08-Sept-2025 14-29.pdf', date: '2025-09-08', category: 'ஆவணம்' }
+    { name: 'ஆவண ஸ்கேனர் 08 செப் 2025 - 14:29', fileName: 'new/DocScanner 08-Sept-2025 14-29.pdf', date: '2025-09-08', category: 'ஆவணம்' },
+    { name: 'GEO ஆவணம்', fileName: 'GEO Document.pdf', date: '2025-01-07', category: 'GO' }
   ];
 
   useEffect(() => {
