@@ -17,6 +17,12 @@ const Gallery = () => {
     const imageFiles = [
       // 12/12/2023 - District President election (KEEP FIRST)
       'district-president-saravanakumar-2023-12-12.jpg',
+      // 24/01/2026 - Departmental ceremony at Coastal Residence
+      'WhatsApp Image 2026-01-24 at 9.35.03 PM.jpeg',
+      // 24/01/2026 - 30 years service celebration for Thiru. Ra. Ragunathan
+      'WhatsApp Image 2026-01-24 at 9.20.11 PM.jpeg',
+      // 24/01/2026 - Award presentation to Xeve Tech Solutions founder Thiru. Lingesh
+      'WhatsApp Image 2026-01-24 at 7.15.37 PM.jpeg',
       // 31/10/2020 - CEC meeting at Villupuram
       'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg',
       // 09/02/2021 - Protest for 20 demands
@@ -72,6 +78,12 @@ const Gallery = () => {
         location = 'மாவட்ட ஆட்சியர் அலுவலகம், நாமக்கல்';
       } else if (fileName === 'WhatsApp Image 2026-01-05 at 8.27.22 PM.jpeg') {
         location = 'மாவட்ட ஆட்சியர் அலுவலகம், நாமக்கல்';
+      } else if (fileName === 'WhatsApp Image 2026-01-24 at 9.35.03 PM.jpeg') {
+        location = 'பரணி ஹால் கோஸ்டல் ரெசிடன்சி, நாமக்கல்';
+      } else if (fileName === 'WhatsApp Image 2026-01-24 at 9.20.11 PM.jpeg') {
+        location = 'நாமக்கல்';
+      } else if (fileName === 'WhatsApp Image 2026-01-24 at 7.15.37 PM.jpeg') {
+        location = 'பரணி ஹால் கோஸ்டல் ரெசிடன்சி, நாமக்கல்';
       }
       
       return {
@@ -80,6 +92,12 @@ const Gallery = () => {
         name:
           fileName === 'district-president-saravanakumar-2023-12-12.jpg'
             ? 'முன்னாள் மாநில துணைத்தலைவர் திரு.இரா. ரகுநாதன் அவர்களால் மாவட்டத்தலைவராக ரா. சரவணகுமார் அவர்கள் 12/12/23 அன்று தேர்த்தெடுக்கப்பட்டார்'
+          : fileName === 'WhatsApp Image 2026-01-24 at 9.35.03 PM.jpeg'
+          ? '24/01/2026 அன்று மாவட்டத்தலைவர் திரு.ரா. சரவணகுமார் அவர்களின் தலைமையில் நடைபெற்ற கோஸ்டல் ரெசிடன்சியில் உள்ள பரணி ஹாலில் மரியாதைக்குரிய திரு.வெ.ராஜேஷ் மற்றும் திரு.ராஜேஷ் கண்ணா ஆகியோருக்கு நடைபெற்ற பிரிவு உபச்சார விழாவில் கலந்து கொண்ட நிகழ்வு'
+          : fileName === 'WhatsApp Image 2026-01-24 at 9.20.11 PM.jpeg'
+          ? '24/01/2026 அன்று மாவட்டத்தலைவர் திரு.ரா. சரவணகுமார் அவர்கள் நமது சங்கத்தின் முன்னாள் மாநில துணைத்தலைவர் திரு.இரா.ரகுநாதன் அவர்கள் வருவாய் மற்றும் பேரிடர் மேலாண்மை துறையில் 30 ஆண்டுகள் பணி நிறைவு செய்ததை அனுசரித்து மற்றும் 31 ஆம் ஆண்டு அடி எடுத்து வைப்பதற்கு'
+          : fileName === 'WhatsApp Image 2026-01-24 at 7.15.37 PM.jpeg'
+          ? 'இன்று கோஸ்டல் ரெசிடன்சியில் நடைபெற்ற பிரிவு உபச்சார விழாவை மேலும் சிறப்பிக்கும் விதமாக, நமது சங்கத்தின் இணையதளம் பக்கத்தை சிறப்பாக தயார் செய்த Xeve Tech Solutions என்ற மென்பொருள் நிறுவனத்தின் Founder & CEO திரு.லிங்கேஷ் B.E. அவர்களுக்கு தமிழ் மாநில வருவாய்த்துறை அலுவலர் சங்கத்தின் சார்பாக மரியாதைக்குரிய திரு.ரகுநாதன், துணை ஆட்சியர் மற்றும் திரு.வெ.ராஜேஷ், துணை ஆட்சியர் அவர்களால் நினைவு பரிசு வழங்கி மற்றும் பொன்னடை அணிவித்து மரியாதை செய்யப்பட்டது'
           : fileName === 'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg'
           ? '31/10/2020 அன்று நடைபெற்ற மத்திய செயற்குழு கூட்டம் விழப்புரம் மாவட்டத்தில் கலந்து கொண்ட போது'
           : fileName === 'WhatsApp Image 2025-12-14 at 07.22.20_1c32bc8e.jpg'

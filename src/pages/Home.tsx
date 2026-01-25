@@ -595,6 +595,219 @@ const Home = () => {
           </motion.div>
         </motion.div>
       </section>
+
+      {/* Website Development History Section */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          {/* Header */}
+          <div className="text-center mb-12">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-primary mb-4 font-tamil"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              TSROA – நாமக்கல் மாவட்ட இணையதள தொடக்க வரலாறு
+            </motion.h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+          </div>
+
+          {/* Content */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 space-y-8 font-tamil">
+            {/* Introduction */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-4"
+            >
+              <p className="text-lg text-gray-700 leading-relaxed">
+                தமிழ்மாநில வருவாய்த் துறை அலுவலர்கள் சங்கம் (TSROA) – நாமக்கல் மாவட்டம்,
+                வருவாய்த் துறை அலுவலர்களின் நலன், சங்கத்தின் செயல்பாடுகள், அறிவிப்புகள்,
+                உறுப்பினர் தகவல்கள் மற்றும் பொதுமக்களுக்கு தேவையான தகவல்களை
+                ஒரே தளத்தில் எளிதாக கொண்டு சேர்க்கும் நோக்கில்,
+                ஒரு அதிகாரபூர்வ இணையதளத்தை உருவாக்கும் முயற்சியை தொடங்கியது.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                இந்த இணையதள உருவாக்கத் திட்டம்,
+                <span className="font-semibold text-primary"> மாவட்டத் தலைவர் திரு. ரா. சரவணகுமார் </span>
+                அவர்களின் முன்னோக்கிய சிந்தனை, தொலைநோக்கு பார்வை மற்றும் வழிகாட்டுதலின் அடிப்படையில்
+                துவக்கப்பட்ட ஒரு முக்கிய முயற்சியாகும்.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                நவீன காலத்திற்கேற்ப, சங்கத்தின் செயல்பாடுகள் அனைத்தையும் டிஜிட்டல் வடிவில் பதிவு செய்து,
+                உறுப்பினர்கள், அலுவலர்கள் மற்றும் பொதுமக்கள் அனைவரும் எளிதாக அணுகும் வகையில் ஒரு
+                நம்பகமான, பாதுகாப்பான மற்றும் தொழில்நுட்ப ரீதியாக வலுவான இணையதளத்தை
+                உருவாக்க வேண்டும் என்ற நோக்கத்துடன் இந்த திட்டம் முன்னெடுக்கப்பட்டது.
+              </p>
+            </motion.div>
+
+            {/* Technical Development Section */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 md:p-8 space-y-4"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4 flex items-center">
+                <span className="text-3xl mr-3">💻</span>
+                இணையதள வடிவமைப்பு & தொழில்நுட்ப உருவாக்கம்
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                இந்த முக்கியமான இணையதள உருவாக்கப் பணியை,
+                <span className="font-semibold text-secondary"> Xeve Tech Solutions </span>
+                என்ற மென்பொருள் நிறுவனம், அதன்
+                <span className="font-semibold"> Founder & CEO திரு. லிங்கேஷ் T, B.E. </span>
+                அவர்களின் தலைமையில், முழுமையான அர்ப்பணிப்பு, நேர்த்தி மற்றும் தொழில்நுட்ப நிபுணத்துவத்துடன்
+                சிறப்பாக நிறைவேற்றியது.
+              </p>
+
+              <div className="mt-6">
+                <p className="text-lg font-semibold text-gray-800 mb-4">இணையதளத்தில்:</p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="flex items-start space-x-3">
+                    <span className="text-green-600 text-xl">✓</span>
+                    <span className="text-gray-700">சங்கத்தின் வரலாறு மற்றும் நோக்கம்</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-green-600 text-xl">✓</span>
+                    <span className="text-gray-700">அறிவிப்புகள் மற்றும் நிகழ்வுகள்</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-green-600 text-xl">✓</span>
+                    <span className="text-gray-700">உறுப்பினர் பதிவு வசதி</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-green-600 text-xl">✓</span>
+                    <span className="text-gray-700">புகைப்படக் காட்சியகம்</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-green-600 text-xl">✓</span>
+                    <span className="text-gray-700">தொடர்பு விவரங்கள்</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-green-600 text-xl">✓</span>
+                    <span className="text-gray-700">நிர்வாகப் பக்கம் (Admin Panel)</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-green-600 text-xl">✓</span>
+                    <span className="text-gray-700">பாதுகாப்பான தரவுத்தள அமைப்பு</span>
+                  </div>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed mt-6">
+                  என அனைத்து முக்கிய அம்சங்களும் நவீன தொழில்நுட்பத்தில், பயனர் நட்பு வடிவமைப்புடன் உருவாக்கப்பட்டுள்ளன.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mt-4">
+                  மேலும், இணையதளம் மொபைல், டேப்லெட் மற்றும் கணினி ஆகிய அனைத்திலும்
+                  எளிதாக செயல்படும் வகையில் முழுமையாக <span className="font-semibold text-primary">Responsive</span> வடிவமைப்பில் உருவாக்கப்பட்டுள்ளது.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Future Vision Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="space-y-4"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4 flex items-center">
+                <span className="text-3xl mr-3">🌟</span>
+                நோக்கும் எதிர்கால பாதையும்
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                இந்த இணையதளம், TSROA – நாமக்கல் மாவட்டத்தின் செயல்பாடுகளை
+                வெளிப்படைத்தன்மை, நேர்த்தி மற்றும் வேகத்துடன் மக்களிடம் கொண்டு சேர்க்கும் ஒரு முக்கிய கருவியாக விளங்குகிறது.
+              </p>
+              <div className="bg-white border-l-4 border-primary p-6 rounded-r-xl">
+                <p className="text-lg font-semibold text-gray-800 mb-4">எதிர்காலத்தில்:</p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start">
+                    <span className="text-secondary mr-2">▸</span>
+                    <span>மேலும் புதிய வசதிகள்</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-secondary mr-2">▸</span>
+                    <span>உறுப்பினர் சேவைகள்</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-secondary mr-2">▸</span>
+                    <span>ஆன்லைன் அறிவிப்புகள்</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-secondary mr-2">▸</span>
+                    <span>டிஜிட்டல் ஆவணங்கள்</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-secondary mr-2">▸</span>
+                    <span>தகவல் பரிமாற்ற வசதிகள்</span>
+                  </li>
+                </ul>
+                <p className="text-lg text-gray-700 leading-relaxed mt-4">
+                  என பல மேம்பாடுகள் செய்து, இந்த இணையதளத்தை ஒரு முழுமையான அதிகாரபூர்வ டிஜிட்டல் தளமாக
+                  வளர்த்தெடுக்க சங்கம் திட்டமிட்டுள்ளது.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Acknowledgement Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 md:p-8 space-y-4 border-2 border-amber-200"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6 flex items-center">
+                <span className="text-3xl mr-3">🙏</span>
+                நன்றி தெரிவிப்பு
+              </h3>
+              
+              <div className="space-y-6">
+                <div className="bg-white rounded-lg p-6 shadow-md">
+                  <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                    இந்த இணையதள உருவாக்க முயற்சி வெற்றிகரமாக நிறைவேறுவதற்கு
+                    முழுமையான ஆதரவு, வழிகாட்டுதல் மற்றும் நம்பிக்கை வழங்கிய
+                  </p>
+                  <div className="text-center py-4 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-lg">
+                    <p className="text-xl font-bold text-primary">மாவட்டத் தலைவர்</p>
+                    <p className="text-2xl font-bold text-secondary mt-2">திரு. ரா. சரவணகுமார்</p>
+                    <p className="text-lg text-gray-700 mt-1">TSROA – நாமக்கல் மாவட்டம்</p>
+                  </div>
+                  <p className="text-lg text-gray-700 leading-relaxed mt-4 text-center">
+                    அவர்களுக்கு சங்கத்தின் சார்பில் மனமார்ந்த நன்றிகள்.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 shadow-md">
+                  <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                    மேலும், இந்த இணையதளத்தை சிறப்பாக வடிவமைத்து உருவாக்கிய
+                  </p>
+                  <div className="text-center py-4 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg">
+                    <p className="text-xl font-bold text-secondary">Xeve Tech Solutions</p>
+                    <p className="text-lg text-gray-700 mt-2">Founder & CEO</p>
+                    <p className="text-2xl font-bold text-primary mt-2">திரு. லிங்கேஷ் T, B.E.</p>
+                  </div>
+                  <p className="text-lg text-gray-700 leading-relaxed mt-4 text-center">
+                    அவர்களுக்கும் TSROA – நாமக்கல் மாவட்டத்தின் சார்பில்
+                    மனமார்ந்த பாராட்டுகளும் நன்றிகளும் தெரிவித்துக் கொள்ளப்படுகின்றன.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
     </>
   );
 };
