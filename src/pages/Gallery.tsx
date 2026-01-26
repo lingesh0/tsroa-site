@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface GalleryImage {
@@ -7,18 +7,174 @@ interface GalleryImage {
   location: string;
 }
 
+interface Position {
+  x: number;
+  y: number;
+}
+
 const Gallery = () => {
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState<Position>({ x: 0, y: 0 });
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  const handleZoomIn = useCallback(() => {
+    setZoomLevel(prev => {
+      const newZoom = Math.min(prev + 0.5, 4);
+      return newZoom;
+    });
+  }, []);
+
+  const handleZoomOut = useCallback(() => {
+    setZoomLevel(prev => {
+      const newZoom = Math.max(prev - 0.5, 1);
+      if (newZoom === 1) {
+        setPosition({ x: 0, y: 0 });
+      }
+      return newZoom;
+    });
+  }, []);
+
+  const handleResetZoom = useCallback(() => {
+    setZoomLevel(1);
+    setPosition({ x: 0, y: 0 });
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setSelectedImage(null);
+    setZoomLevel(1);
+    setPosition({ x: 0, y: 0 });
+  }, []);
+
+  // Handle mouse wheel zoom
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (e.deltaY < 0) {
+      setZoomLevel(prev => {
+        const newZoom = Math.min(prev + 0.25, 4);
+        return newZoom;
+      });
+    } else {
+      setZoomLevel(prev => {
+        const newZoom = Math.max(prev - 0.25, 1);
+        if (newZoom === 1) {
+          setPosition({ x: 0, y: 0 });
+        }
+        return newZoom;
+      });
+    }
+  }, []);
+
+  // Handle drag start
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    if (zoomLevel > 1) {
+      e.preventDefault();
+      setIsDragging(true);
+      setDragStart({
+        x: e.clientX - position.x,
+        y: e.clientY - position.y
+      });
+    }
+  }, [zoomLevel, position]);
+
+  // Handle drag move
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (isDragging && zoomLevel > 1) {
+      e.preventDefault();
+      const newX = e.clientX - dragStart.x;
+      const newY = e.clientY - dragStart.y;
+      
+      // Limit drag boundaries based on zoom level
+      const maxOffset = (zoomLevel - 1) * 300;
+      setPosition({
+        x: Math.max(-maxOffset, Math.min(maxOffset, newX)),
+        y: Math.max(-maxOffset, Math.min(maxOffset, newY))
+      });
+    }
+  }, [isDragging, zoomLevel, dragStart]);
+
+  // Handle drag end
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  // Handle touch events for mobile
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    if (zoomLevel > 1 && e.touches.length === 1) {
+      const touch = e.touches[0];
+      setIsDragging(true);
+      setDragStart({
+        x: touch.clientX - position.x,
+        y: touch.clientY - position.y
+      });
+    }
+  }, [zoomLevel, position]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (isDragging && zoomLevel > 1 && e.touches.length === 1) {
+      const touch = e.touches[0];
+      const newX = touch.clientX - dragStart.x;
+      const newY = touch.clientY - dragStart.y;
+      
+      const maxOffset = (zoomLevel - 1) * 300;
+      setPosition({
+        x: Math.max(-maxOffset, Math.min(maxOffset, newX)),
+        y: Math.max(-maxOffset, Math.min(maxOffset, newY))
+      });
+    }
+  }, [isDragging, zoomLevel, dragStart]);
+
+  const handleTouchEnd = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  // Handle keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedImage) return;
+      
+      switch (e.key) {
+        case 'Escape':
+          handleCloseModal();
+          break;
+        case '+':
+        case '=':
+          handleZoomIn();
+          break;
+        case '-':
+          handleZoomOut();
+          break;
+        case '0':
+          handleResetZoom();
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, handleCloseModal, handleZoomIn, handleZoomOut, handleResetZoom]);
 
   useEffect(() => {
     // Load images from public/images/gallery folder (District President election first, then others sorted by date - oldest to newest)
     const imageFiles = [
       // 12/12/2023 - District President election (KEEP FIRST)
       'district-president-saravanakumar-2023-12-12.jpg',
+      // 26/01/2026 - Newspaper coverage of Xeve Tech Solutions award
+      'WhatsApp Image 2026-01-26 at 8.46.36 AM.jpeg',
       // 24/01/2026 - Departmental ceremony at Coastal Residence
       'WhatsApp Image 2026-01-24 at 9.35.03 PM.jpeg',
+      'WhatsApp Image 2026-01-24 at 9.35.04 PM.jpeg',
+      'WhatsApp Image 2026-01-24 at 9.35.05 PM.jpeg',
+      'WhatsApp Image 2026-01-24 at 9.35.06 PM.jpeg',
+      'WhatsApp Image 2026-01-24 at 9.35.07 PM.jpeg',
+      'WhatsApp Image 2026-01-24 at 9.35.08 PM.jpeg',
       // 24/01/2026 - 30 years service celebration for Thiru. Ra. Ragunathan
       'WhatsApp Image 2026-01-24 at 9.20.11 PM.jpeg',
       // 24/01/2026 - Award presentation to Xeve Tech Solutions founder Thiru. Lingesh
@@ -78,7 +234,14 @@ const Gallery = () => {
         location = 'மாவட்ட ஆட்சியர் அலுவலகம், நாமக்கல்';
       } else if (fileName === 'WhatsApp Image 2026-01-05 at 8.27.22 PM.jpeg') {
         location = 'மாவட்ட ஆட்சியர் அலுவலகம், நாமக்கல்';
-      } else if (fileName === 'WhatsApp Image 2026-01-24 at 9.35.03 PM.jpeg') {
+      } else if (fileName === 'WhatsApp Image 2026-01-26 at 8.46.36 AM.jpeg') {
+        location = 'பரணி ஹால் கோஸ்டல் ரெசிடன்சி, நாமக்கல்';
+      } else if (fileName === 'WhatsApp Image 2026-01-24 at 9.35.03 PM.jpeg' ||
+                 fileName === 'WhatsApp Image 2026-01-24 at 9.35.04 PM.jpeg' ||
+                 fileName === 'WhatsApp Image 2026-01-24 at 9.35.05 PM.jpeg' ||
+                 fileName === 'WhatsApp Image 2026-01-24 at 9.35.06 PM.jpeg' ||
+                 fileName === 'WhatsApp Image 2026-01-24 at 9.35.07 PM.jpeg' ||
+                 fileName === 'WhatsApp Image 2026-01-24 at 9.35.08 PM.jpeg') {
         location = 'பரணி ஹால் கோஸ்டல் ரெசிடன்சி, நாமக்கல்';
       } else if (fileName === 'WhatsApp Image 2026-01-24 at 9.20.11 PM.jpeg') {
         location = 'நாமக்கல்';
@@ -92,10 +255,18 @@ const Gallery = () => {
         name:
           fileName === 'district-president-saravanakumar-2023-12-12.jpg'
             ? 'முன்னாள் மாநில துணைத்தலைவர் திரு.இரா. ரகுநாதன் அவர்களால் மாவட்டத்தலைவராக ரா. சரவணகுமார் அவர்கள் 12/12/23 அன்று தேர்த்தெடுக்கப்பட்டார்'
+          : fileName === 'WhatsApp Image 2026-01-26 at 8.46.36 AM.jpeg'
+          ? 'TSROA சார்பில் 26.01.2026 அன்று நடைபெற்ற பிரிவு உபச்சார விழாவில், துணை ஆட்சியர்கள் திரு. ரகுநாதன் மற்றும் திரு. வெ. ராஜேஷ் அவர்கள் கலந்து கொண்டனர். சங்கத்தின் அதிகாரபூர்வ இணையதளத்தை உருவாக்கிய Xeve Tech Solutions நிறுவனத்தின் Founder & CEO திரு. லிங்கேஷ் T, B.E. அவர்களுக்கு நினைவு பரிசு வழங்கி மரியாதை செய்யப்பட்டது. இந்த நிகழ்வு தொடர்பான செய்தி முக்கிய செய்தித்தாள்களில் வெளிவந்து நிகழ்வின் சிறப்பை மேலும் உயர்த்தியது.'
           : fileName === 'WhatsApp Image 2026-01-24 at 9.35.03 PM.jpeg'
           ? '24/01/2026 அன்று மாவட்டத்தலைவர் திரு.ரா. சரவணகுமார் அவர்களின் தலைமையில் நடைபெற்ற கோஸ்டல் ரெசிடன்சியில் உள்ள பரணி ஹாலில் மரியாதைக்குரிய திரு.வெ.ராஜேஷ் மற்றும் திரு.ராஜேஷ் கண்ணா ஆகியோருக்கு நடைபெற்ற பிரிவு உபச்சார விழாவில் கலந்து கொண்ட நிகழ்வு'
+          : fileName === 'WhatsApp Image 2026-01-24 at 9.35.04 PM.jpeg' ||
+            fileName === 'WhatsApp Image 2026-01-24 at 9.35.05 PM.jpeg' ||
+            fileName === 'WhatsApp Image 2026-01-24 at 9.35.06 PM.jpeg' ||
+            fileName === 'WhatsApp Image 2026-01-24 at 9.35.07 PM.jpeg' ||
+            fileName === 'WhatsApp Image 2026-01-24 at 9.35.08 PM.jpeg'
+          ? 'கோஸ்டல் ரெசிடன்சியில் நடைபெற்ற பிரிவு உபச்சார விழாவில் சங்க உறுப்பினர்கள் மற்றும் அலுவலர்கள் கலந்து கொண்டு மகிழ்ச்சியாகக் கழித்த நினைவுகூரத்தக்க தருணங்கள்'
           : fileName === 'WhatsApp Image 2026-01-24 at 9.20.11 PM.jpeg'
-          ? '24/01/2026 அன்று மாவட்டத்தலைவர் திரு.ரா. சரவணகுமார் அவர்கள் நமது சங்கத்தின் முன்னாள் மாநில துணைத்தலைவர் திரு.இரா.ரகுநாதன் அவர்கள் வருவாய் மற்றும் பேரிடர் மேலாண்மை துறையில் 30 ஆண்டுகள் பணி நிறைவு செய்ததை அனுசரித்து மற்றும் 31 ஆம் ஆண்டு அடி எடுத்து வைப்பதற்கு'
+          ? '24/01/2026 அன்று மாவட்டத்தலைவர் திரு.ரா. சரவணகுமார் அவர்கள் நமது சங்கத்தின் முன்னாள் மாநில துணைத்தலைவர் திரு.இரா.ரகுநாதன் அவர்கள் வருவாய் மற்றும் பேரிடர் மேலாண்மை துறையில் 30 ஆண்டுகள் பணி நிறைவு செய்ததை அனுசரித்து மற்றும் 31 ஆம் ஆண்டு அடி எடுத்து வைப்பதற்கு நேரில் சங்க நிர்வாகிகளுடன் வாழ்த்துக்கள் தெரிவிக்கப்பட்டது'
           : fileName === 'WhatsApp Image 2026-01-24 at 7.15.37 PM.jpeg'
           ? 'இன்று கோஸ்டல் ரெசிடன்சியில் நடைபெற்ற பிரிவு உபச்சார விழாவை மேலும் சிறப்பிக்கும் விதமாக, நமது சங்கத்தின் இணையதளம் பக்கத்தை சிறப்பாக தயார் செய்த Xeve Tech Solutions என்ற மென்பொருள் நிறுவனத்தின் Founder & CEO திரு.லிங்கேஷ் B.E. அவர்களுக்கு தமிழ் மாநில வருவாய்த்துறை அலுவலர் சங்கத்தின் சார்பாக மரியாதைக்குரிய திரு.ரகுநாதன், துணை ஆட்சியர் மற்றும் திரு.வெ.ராஜேஷ், துணை ஆட்சியர் அவர்களால் நினைவு பரிசு வழங்கி மற்றும் பொன்னடை அணிவித்து மரியாதை செய்யப்பட்டது'
           : fileName === 'WhatsApp Image 2025-12-14 at 07.22.17_7025e63f.jpg'
@@ -195,7 +366,7 @@ const Gallery = () => {
             {images.map((image, index) => (
               <motion.div
                 key={image.name}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col"
+                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col h-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -247,18 +418,19 @@ const Gallery = () => {
                 </div>
 
                 {/* Content Container */}
-                <div className="p-6 flex-1 flex flex-col">
+                <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="h-1 w-12 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
                     <span className="text-xs font-semibold text-primary uppercase tracking-wide">நிகழ்வு</span>
                   </div>
                   
-                  <p className="text-gray-700 font-tamil leading-relaxed text-[15px] flex-1">
+                  {/* Full Description */}
+                  <p className="text-gray-700 font-tamil leading-relaxed text-[15px] flex-grow">
                     {image.name}
                   </p>
 
-                  {/* Location */}
-                  <div className="flex items-start gap-2 mt-4 text-gray-600">
+                  {/* Location - Always at bottom */}
+                  <div className="flex items-start gap-2 text-gray-600 pt-4 border-t border-gray-100 mt-4">
                     <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                     </svg>
@@ -278,43 +450,87 @@ const Gallery = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedImage(null)}
+              onClick={handleCloseModal}
             >
               <div className="h-full w-full flex flex-col">
                 {/* Header with close button */}
-                <div className="flex justify-between items-center p-6">
+                <div className="flex justify-between items-center p-4 md:p-6">
                   <div className="flex items-center gap-3">
                     <div className="bg-white/10 backdrop-blur-md rounded-lg p-2">
                       <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <span className="text-white font-tamil text-lg font-semibold">படத்தொகுப்பு காட்சி</span>
+                    <span className="text-white font-tamil text-lg font-semibold hidden sm:block">படத்தொகுப்பு காட்சி</span>
                   </div>
-                  <button
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 hover:rotate-90"
-                    onClick={() => setSelectedImage(null)}
-                  >
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+
+                  {/* Zoom Controls */}
+                  <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                    {/* Zoom Out Button */}
+                    <button
+                      className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      onClick={handleZoomOut}
+                      disabled={zoomLevel <= 1}
+                      title="Zoom Out (-)"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7" />
+                      </svg>
+                    </button>
+
+                    {/* Zoom Level Indicator */}
+                    <div className="bg-white/10 backdrop-blur-md text-white rounded-lg px-3 py-2 min-w-[70px] text-center">
+                      <span className="text-sm font-semibold">{Math.round(zoomLevel * 100)}%</span>
+                    </div>
+
+                    {/* Zoom In Button */}
+                    <button
+                      className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      onClick={handleZoomIn}
+                      disabled={zoomLevel >= 4}
+                      title="Zoom In (+)"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                      </svg>
+                    </button>
+
+                    {/* Reset Zoom Button */}
+                    <button
+                      className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 ml-2 disabled:opacity-50"
+                      onClick={handleResetZoom}
+                      disabled={zoomLevel === 1}
+                      title="Reset (0)"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                      </svg>
+                    </button>
+
+                    {/* Close Button */}
+                    <button
+                      className="bg-red-500/80 hover:bg-red-500 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 ml-2"
+                      onClick={handleCloseModal}
+                      title="Close (Esc)"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
 
-                {/* Image container */}
-                <div className="flex-1 flex items-center justify-center p-4">
+                {/* Image container with zoom and pan */}
+                <div 
+                  ref={imageContainerRef}
+                  className="flex-1 flex items-center justify-center p-4 overflow-hidden select-none"
+                  onWheel={handleWheel}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                  onMouseLeave={handleMouseUp}
+                >
                   <motion.div
-                    className="relative max-w-6xl w-full"
+                    className="relative flex items-center justify-center"
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.9, opacity: 0 }}
@@ -322,9 +538,35 @@ const Gallery = () => {
                     onClick={(e) => e.stopPropagation()}
                   >
                     <img
+                      ref={imageRef}
                       src={selectedImage}
                       alt="Enlarged view"
-                      className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
+                      className={`max-w-full rounded-lg shadow-2xl select-none ${zoomLevel > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'}`}
+                      style={{ 
+                        transform: `scale(${zoomLevel}) translate(${position.x / zoomLevel}px, ${position.y / zoomLevel}px)`,
+                        maxHeight: '80vh',
+                        transition: isDragging ? 'none' : 'transform 0.2s ease-out',
+                        transformOrigin: 'center center'
+                      }}
+                      draggable={false}
+                      onMouseDown={handleMouseDown}
+                      onTouchStart={handleTouchStart}
+                      onTouchMove={handleTouchMove}
+                      onTouchEnd={handleTouchEnd}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (zoomLevel === 1) {
+                          handleZoomIn();
+                        }
+                      }}
+                      onDoubleClick={(e) => {
+                        e.stopPropagation();
+                        if (zoomLevel > 1) {
+                          handleResetZoom();
+                        } else {
+                          setZoomLevel(2);
+                        }
+                      }}
                     />
                   </motion.div>
                 </div>
@@ -332,7 +574,10 @@ const Gallery = () => {
                 {/* Footer with hint */}
                 <div className="p-4 text-center">
                   <p className="text-white/70 font-tamil text-sm">
-                    படத்தை மூட வெளியே கிளிக் செய்யவும் அல்லது ESC அழுத்தவும்
+                    {zoomLevel > 1 
+                      ? 'படத்தை நகர்த்த இழுக்கவும் | இரட்டை கிளிக் செய்து மீட்டமைக்கவும் | மூட ESC அழுத்தவும்'
+                      : 'படத்தை பெரிதாக்க கிளிக் செய்யவும் அல்லது + பயன்படுத்தவும் | மூட வெளியே கிளிக் செய்யவும்'
+                    }
                   </p>
                 </div>
               </div>
