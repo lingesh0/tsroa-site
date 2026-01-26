@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface GalleryImage {
@@ -7,159 +7,26 @@ interface GalleryImage {
   location: string;
 }
 
-interface Position {
-  x: number;
-  y: number;
-}
-
 const Gallery = () => {
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [zoomLevel, setZoomLevel] = useState(1);
-  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragStart, setDragStart] = useState<Position>({ x: 0, y: 0 });
-  const imageContainerRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
 
-  const handleZoomIn = useCallback(() => {
-    setZoomLevel(prev => {
-      const newZoom = Math.min(prev + 0.5, 4);
-      return newZoom;
-    });
-  }, []);
-
-  const handleZoomOut = useCallback(() => {
-    setZoomLevel(prev => {
-      const newZoom = Math.max(prev - 0.5, 1);
-      if (newZoom === 1) {
-        setPosition({ x: 0, y: 0 });
-      }
-      return newZoom;
-    });
-  }, []);
-
-  const handleResetZoom = useCallback(() => {
-    setZoomLevel(1);
-    setPosition({ x: 0, y: 0 });
-  }, []);
-
-  const handleCloseModal = useCallback(() => {
+  const handleCloseModal = () => {
     setSelectedImage(null);
-    setZoomLevel(1);
-    setPosition({ x: 0, y: 0 });
-  }, []);
+  };
 
-  // Handle mouse wheel zoom
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    if (e.deltaY < 0) {
-      setZoomLevel(prev => {
-        const newZoom = Math.min(prev + 0.25, 4);
-        return newZoom;
-      });
-    } else {
-      setZoomLevel(prev => {
-        const newZoom = Math.max(prev - 0.25, 1);
-        if (newZoom === 1) {
-          setPosition({ x: 0, y: 0 });
-        }
-        return newZoom;
-      });
-    }
-  }, []);
-
-  // Handle drag start
-  const handleMouseDown = useCallback((e: React.MouseEvent) => {
-    if (zoomLevel > 1) {
-      e.preventDefault();
-      setIsDragging(true);
-      setDragStart({
-        x: e.clientX - position.x,
-        y: e.clientY - position.y
-      });
-    }
-  }, [zoomLevel, position]);
-
-  // Handle drag move
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (isDragging && zoomLevel > 1) {
-      e.preventDefault();
-      const newX = e.clientX - dragStart.x;
-      const newY = e.clientY - dragStart.y;
-      
-      // Limit drag boundaries based on zoom level
-      const maxOffset = (zoomLevel - 1) * 300;
-      setPosition({
-        x: Math.max(-maxOffset, Math.min(maxOffset, newX)),
-        y: Math.max(-maxOffset, Math.min(maxOffset, newY))
-      });
-    }
-  }, [isDragging, zoomLevel, dragStart]);
-
-  // Handle drag end
-  const handleMouseUp = useCallback(() => {
-    setIsDragging(false);
-  }, []);
-
-  // Handle touch events for mobile
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    if (zoomLevel > 1 && e.touches.length === 1) {
-      const touch = e.touches[0];
-      setIsDragging(true);
-      setDragStart({
-        x: touch.clientX - position.x,
-        y: touch.clientY - position.y
-      });
-    }
-  }, [zoomLevel, position]);
-
-  const handleTouchMove = useCallback((e: React.TouchEvent) => {
-    if (isDragging && zoomLevel > 1 && e.touches.length === 1) {
-      const touch = e.touches[0];
-      const newX = touch.clientX - dragStart.x;
-      const newY = touch.clientY - dragStart.y;
-      
-      const maxOffset = (zoomLevel - 1) * 300;
-      setPosition({
-        x: Math.max(-maxOffset, Math.min(maxOffset, newX)),
-        y: Math.max(-maxOffset, Math.min(maxOffset, newY))
-      });
-    }
-  }, [isDragging, zoomLevel, dragStart]);
-
-  const handleTouchEnd = useCallback(() => {
-    setIsDragging(false);
-  }, []);
-
-  // Handle keyboard shortcuts
   useEffect(() => {
+    // Handle Escape key to close modal
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (!selectedImage) return;
-      
-      switch (e.key) {
-        case 'Escape':
-          handleCloseModal();
-          break;
-        case '+':
-        case '=':
-          handleZoomIn();
-          break;
-        case '-':
-          handleZoomOut();
-          break;
-        case '0':
-          handleResetZoom();
-          break;
+      if (e.key === 'Escape' && selectedImage) {
+        handleCloseModal();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedImage, handleCloseModal, handleZoomIn, handleZoomOut, handleResetZoom]);
+  }, [selectedImage]);
 
   useEffect(() => {
     // Load images from public/images/gallery folder (District President election first, then others sorted by date - oldest to newest)
@@ -453,73 +320,22 @@ const Gallery = () => {
                     <span className="text-white font-tamil text-lg font-semibold hidden sm:block">படத்தொகுப்பு காட்சி</span>
                   </div>
 
-                  {/* Zoom Controls */}
-                  <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                    {/* Zoom Out Button */}
-                    <button
-                      className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                      onClick={handleZoomOut}
-                      disabled={zoomLevel <= 1}
-                      title="Zoom Out (-)"
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7" />
-                      </svg>
-                    </button>
-
-                    {/* Zoom Level Indicator */}
-                    <div className="bg-white/10 backdrop-blur-md text-white rounded-lg px-3 py-2 min-w-[70px] text-center">
-                      <span className="text-sm font-semibold">{Math.round(zoomLevel * 100)}%</span>
-                    </div>
-
-                    {/* Zoom In Button */}
-                    <button
-                      className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                      onClick={handleZoomIn}
-                      disabled={zoomLevel >= 4}
-                      title="Zoom In (+)"
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                      </svg>
-                    </button>
-
-                    {/* Reset Zoom Button */}
-                    <button
-                      className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 ml-2 disabled:opacity-50"
-                      onClick={handleResetZoom}
-                      disabled={zoomLevel === 1}
-                      title="Reset (0)"
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                      </svg>
-                    </button>
-
-                    {/* Close Button */}
-                    <button
-                      className="bg-red-500/80 hover:bg-red-500 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 ml-2"
-                      onClick={handleCloseModal}
-                      title="Close (Esc)"
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
-                  </div>
+                  {/* Close Button */}
+                  <button
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 hover:rotate-90"
+                    onClick={handleCloseModal}
+                    title="Close (Esc)"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
                 </div>
 
-                {/* Image container with zoom and pan */}
-                <div 
-                  ref={imageContainerRef}
-                  className="flex-1 flex items-center justify-center p-4 overflow-hidden select-none"
-                  onWheel={handleWheel}
-                  onMouseMove={handleMouseMove}
-                  onMouseUp={handleMouseUp}
-                  onMouseLeave={handleMouseUp}
-                >
+                {/* Image container */}
+                <div className="flex-1 flex items-center justify-center p-4 overflow-auto">
                   <motion.div
-                    className="relative flex items-center justify-center"
+                    className="relative"
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.9, opacity: 0 }}
@@ -527,35 +343,14 @@ const Gallery = () => {
                     onClick={(e) => e.stopPropagation()}
                   >
                     <img
-                      ref={imageRef}
                       src={selectedImage}
                       alt="Enlarged view"
-                      className={`max-w-full rounded-lg shadow-2xl select-none ${zoomLevel > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'}`}
+                      className="max-w-full rounded-lg shadow-2xl"
                       style={{ 
-                        transform: `scale(${zoomLevel}) translate(${position.x / zoomLevel}px, ${position.y / zoomLevel}px)`,
                         maxHeight: '80vh',
-                        transition: isDragging ? 'none' : 'transform 0.2s ease-out',
-                        transformOrigin: 'center center'
+                        width: 'auto'
                       }}
                       draggable={false}
-                      onMouseDown={handleMouseDown}
-                      onTouchStart={handleTouchStart}
-                      onTouchMove={handleTouchMove}
-                      onTouchEnd={handleTouchEnd}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (zoomLevel === 1) {
-                          handleZoomIn();
-                        }
-                      }}
-                      onDoubleClick={(e) => {
-                        e.stopPropagation();
-                        if (zoomLevel > 1) {
-                          handleResetZoom();
-                        } else {
-                          setZoomLevel(2);
-                        }
-                      }}
                     />
                   </motion.div>
                 </div>
@@ -563,10 +358,7 @@ const Gallery = () => {
                 {/* Footer with hint */}
                 <div className="p-4 text-center">
                   <p className="text-white/70 font-tamil text-sm">
-                    {zoomLevel > 1 
-                      ? 'படத்தை நகர்த்த இழுக்கவும் | இரட்டை கிளிக் செய்து மீட்டமைக்கவும் | மூட ESC அழுத்தவும்'
-                      : 'படத்தை பெரிதாக்க கிளிக் செய்யவும் அல்லது + பயன்படுத்தவும் | மூட வெளியே கிளிக் செய்யவும்'
-                    }
+                    படத்தை மூட வெளியே கிளிக் செய்யவும் அல்லது ESC அழுத்தவும்
                   </p>
                 </div>
               </div>
