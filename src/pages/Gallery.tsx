@@ -172,10 +172,6 @@ const Gallery = () => {
       'grop photo.jpeg',
       // 24/01/2026 - Departmental ceremony at Coastal Residence
       'WhatsApp Image 2026-01-24 at 9.35.04 PM.jpeg',
-      'WhatsApp Image 2026-01-24 at 9.35.05 PM.jpeg',
-      'WhatsApp Image 2026-01-24 at 9.35.06 PM.jpeg',
-      'WhatsApp Image 2026-01-24 at 9.35.07 PM.jpeg',
-      'WhatsApp Image 2026-01-24 at 9.35.08 PM.jpeg',
       // 24/01/2026 - 30 years service celebration for Thiru. Ra. Ragunathan
       'WhatsApp Image 2026-01-24 at 9.20.11 PM.jpeg',
       // 24/01/2026 - Award presentation to Xeve Tech Solutions founder Thiru. Lingesh
@@ -239,11 +235,7 @@ const Gallery = () => {
         location = 'பரணி ஹால் கோஸ்டல் ரெசிடன்சி, நாமக்கல்';
       } else if (fileName === 'WhatsApp Image 2026-01-26 at 8.46.36 AM.jpeg') {
         location = 'பரணி ஹால் கோஸ்டல் ரெசிடன்சி, நாமக்கல்';
-      } else if (fileName === 'WhatsApp Image 2026-01-24 at 9.35.04 PM.jpeg' ||
-                 fileName === 'WhatsApp Image 2026-01-24 at 9.35.05 PM.jpeg' ||
-                 fileName === 'WhatsApp Image 2026-01-24 at 9.35.06 PM.jpeg' ||
-                 fileName === 'WhatsApp Image 2026-01-24 at 9.35.07 PM.jpeg' ||
-                 fileName === 'WhatsApp Image 2026-01-24 at 9.35.08 PM.jpeg') {
+      } else if (fileName === 'WhatsApp Image 2026-01-24 at 9.35.04 PM.jpeg') {
         location = 'பரணி ஹால் கோஸ்டல் ரெசிடன்சி, நாமக்கல்';
       } else if (fileName === 'WhatsApp Image 2026-01-24 at 9.20.11 PM.jpeg') {
         location = 'நாமக்கல்';
@@ -260,11 +252,7 @@ const Gallery = () => {
           : fileName === 'WhatsApp Image 2026-01-26 at 8.46.36 AM.jpeg'
           ? 'TSROA சார்பில் 26.01.2026 அன்று நடைபெற்ற பிரிவு உபச்சார விழாவில், துணை ஆட்சியர்கள் திரு. ரகுநாதன் மற்றும் திரு. வெ. ராஜேஷ் அவர்கள் கலந்து கொண்டனர். சங்கத்தின் அதிகாரபூர்வ இணையதளத்தை உருவாக்கிய Xeve Tech Solutions நிறுவனத்தின் Founder & CEO திரு. லிங்கேஷ் T, B.E. அவர்களுக்கு நினைவு பரிசு வழங்கி மரியாதை செய்யப்பட்டது. இந்த நிகழ்வு தொடர்பான செய்தி முக்கிய செய்தித்தாள்களில் வெளிவந்து நிகழ்வின் சிறப்பை மேலும் உயர்த்தியது.'          : fileName === 'grop photo.jpeg'
           ? '24/01/25 அன்று மாவட்டத்தலைவர் திரு.ரா. சரவணகுமார் அவர்களின் தலைமையில் நடைபெற்ற கோஸ்டல் ரெசிடன்சியில் உள்ள பரணி ஹாலில் மரியாதைக்குரிய திரு.வெ.ராஜேஷ் மற்றும் திரு.ராஜேஷ் கண்ணா அாகியோக்கு நடைபெற்ற பிரிவு உபச்சார விழாவில் கலந்து கொண்டு, நிகழ்வை சிறப்பாக்க செச்ந மதிப்பிர்குரிய திரு. மா.க.சரவணந் மாவட்ட வருவாஏ அலுவார் அவர்கள், மதிப்பிர்குரிய திரு.ரகுநாதன், துணை ஆட்சியர் அவர்கள், மதிப்பிர்குரிய மாவட்ட வழங்கவுர௞கார் திரு.முருகன் அவர்கள் ஆகியோக்க மதிப்பிர்குரிய நிர்வாகிகள் அனைவும் கலந்து கொண்டனர்'
-          : fileName === 'WhatsApp Image 2026-01-24 at 9.35.04 PM.jpeg' ||
-            fileName === 'WhatsApp Image 2026-01-24 at 9.35.05 PM.jpeg' ||
-            fileName === 'WhatsApp Image 2026-01-24 at 9.35.06 PM.jpeg' ||
-            fileName === 'WhatsApp Image 2026-01-24 at 9.35.07 PM.jpeg' ||
-            fileName === 'WhatsApp Image 2026-01-24 at 9.35.08 PM.jpeg'
+          : fileName === 'WhatsApp Image 2026-01-24 at 9.35.04 PM.jpeg'
           ? 'கோஸ்டல் ரெசிடன்சியில் நடைபெற்ற பிரிவு உபச்சார விழாவில் சங்க உறுப்பினர்கள் மற்றும் அலுவலர்கள் கலந்து கொண்டு மகிழ்ச்சியாகக் கழித்த நினைவுகூரத்தக்க தருணங்கள்'
           : fileName === 'WhatsApp Image 2026-01-24 at 9.20.11 PM.jpeg'
           ? '24/01/2026 அன்று மாவட்டத்தலைவர் திரு.ரா. சரவணகுமார் அவர்கள் நமது சங்கத்தின் முன்னாள் மாநில துணைத்தலைவர் திரு.இரா.ரகுநாதன் அவர்கள் வருவாய் மற்றும் பேரிடர் மேலாண்மை துறையில் 30 ஆண்டுகள் பணி நிறைவு செய்ததை அனுசரித்து மற்றும் 31 ஆம் ஆண்டு அடி எடுத்து வைப்பதற்கு நேரில் சங்க நிர்வாகிகளுடன் வாழ்த்துக்கள் தெரிவிக்கப்பட்டது'
